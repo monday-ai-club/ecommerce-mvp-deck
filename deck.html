@@ -4,545 +4,335 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>monday eCommerce MVP — Revenue Protection</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --monday-red: #F62B54;
-    --monday-blue: #0085FF;
-    --monday-dark: #0D0F1A;
-    --monday-card: #161929;
-    --monday-border: #252A40;
-    --monday-muted: #6B7280;
-    --monday-light: #E8EAEF;
-    --monday-white: #FFFFFF;
-    --green: #00C875;
-    --purple: #9B6DFF;
-    --orange: #FF7B1C;
+    --red: #F62B54; --blue: #0085FF; --dark: #0D0F1A;
+    --card: #161929; --border: #252A40; --muted: #6B7280;
+    --white: #FFFFFF; --green: #00C875; --purple: #9B6DFF;
   }
-
-  html, body {
-    height: 100%;
+  html { scroll-behavior: smooth; }
+  body {
     font-family: 'Inter', sans-serif;
-    background: var(--monday-dark);
-    color: var(--monday-white);
-    overflow: hidden;
-  }
-
-  /* ── DECK SHELL ── */
-  .deck { width: 100vw; height: 100vh; position: relative; }
-
-  /* ── SLIDES ── */
-  .slide {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 60px 80px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    transform: translateY(24px);
-  }
-  .slide.active {
-    opacity: 1;
-    pointer-events: all;
-    transform: translateY(0);
-  }
-
-  /* ── PROGRESS BAR ── */
-  .progress-bar {
-    position: fixed;
-    bottom: 0; left: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--monday-red), var(--monday-blue));
-    transition: width 0.4s ease;
-    z-index: 100;
+    background: var(--dark);
+    color: var(--white);
+    min-height: 100vh;
+    padding: 0;
   }
 
   /* ── NAV ── */
-  .nav {
-    position: fixed;
-    bottom: 28px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    z-index: 100;
+  .top-nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(13,15,26,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 20px;
+    display: flex; align-items: center; justify-content: space-between;
   }
-  .nav-btn {
-    background: var(--monday-card);
-    border: 1px solid var(--monday-border);
-    color: var(--monday-white);
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 18px;
-    display: flex; align-items: center; justify-content: center;
-    transition: background 0.2s, border-color 0.2s;
+  .brand { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .brand span { color: var(--red); }
+  .nav-dots { display: flex; gap: 8px; align-items: center; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); cursor: pointer; transition: background .2s; }
+  .dot.active { background: var(--red); }
+
+  /* ── SLIDES ── */
+  .slide {
+    min-height: 100svh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 48px 24px;
+    border-bottom: 1px solid var(--border);
+    scroll-snap-align: start;
+    position: relative;
   }
-  .nav-btn:hover { background: var(--monday-border); border-color: var(--monday-muted); }
-  .slide-counter {
-    font-size: 13px;
-    color: var(--monday-muted);
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    min-width: 48px;
-    text-align: center;
+  @media (min-width: 640px) { .slide { padding: 64px 48px; } }
+  @media (min-width: 1024px) { .slide { padding: 80px 80px; } }
+
+  /* ── SCROLL SNAP (desktop only) ── */
+  @media (min-width: 1024px) {
+    body { height: 100vh; overflow-y: scroll; scroll-snap-type: y mandatory; }
+    .slide { height: 100vh; min-height: unset; overflow: hidden; }
   }
 
-  /* ── LOGO MARK ── */
-  .logomark {
-    position: fixed;
-    top: 28px; left: 36px;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    color: var(--monday-muted);
-    text-transform: uppercase;
-    z-index: 100;
-  }
-  .logomark span { color: var(--monday-red); }
-
-  /* ── TYPOGRAPHY ── */
+  /* ── TAG ── */
   .tag {
-    display: inline-block;
-    padding: 5px 14px;
-    border-radius: 99px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 24px;
+    display: inline-block; padding: 4px 12px; border-radius: 99px;
+    font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+    margin-bottom: 20px; width: fit-content;
   }
-  .tag-red { background: rgba(246,43,84,0.15); color: var(--monday-red); border: 1px solid rgba(246,43,84,0.3); }
-  .tag-blue { background: rgba(0,133,255,0.15); color: var(--monday-blue); border: 1px solid rgba(0,133,255,0.3); }
-  .tag-green { background: rgba(0,200,117,0.15); color: var(--green); border: 1px solid rgba(0,200,117,0.3); }
-  .tag-purple { background: rgba(155,109,255,0.15); color: var(--purple); border: 1px solid rgba(155,109,255,0.3); }
+  .tag-red { background: rgba(246,43,84,.12); color: var(--red); border: 1px solid rgba(246,43,84,.3); }
+  .tag-blue { background: rgba(0,133,255,.12); color: var(--blue); border: 1px solid rgba(0,133,255,.3); }
+  .tag-green { background: rgba(0,200,117,.12); color: var(--green); border: 1px solid rgba(0,200,117,.3); }
+  .tag-purple { background: rgba(155,109,255,.12); color: var(--purple); border: 1px solid rgba(155,109,255,.3); }
 
-  h1 {
-    font-size: clamp(40px, 6vw, 72px);
-    font-weight: 900;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-  }
-  h2 {
-    font-size: clamp(26px, 3.5vw, 42px);
-    font-weight: 800;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    margin-bottom: 12px;
-  }
-  h3 {
-    font-size: 16px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    letter-spacing: -0.01em;
-  }
-  p { font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.75); }
-
+  /* ── TYPE ── */
+  h1 { font-size: clamp(36px,8vw,72px); font-weight: 900; line-height: 1.05; letter-spacing: -.03em; }
+  h2 { font-size: clamp(22px,4vw,40px); font-weight: 800; line-height: 1.15; letter-spacing: -.02em; margin-bottom: 8px; }
+  p, li { font-size: clamp(14px,1.6vw,16px); line-height: 1.65; color: rgba(255,255,255,.75); }
   .gradient-text {
-    background: linear-gradient(135deg, var(--monday-red) 0%, #FF6B8A 40%, var(--monday-blue) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    background: linear-gradient(135deg, var(--red) 0%, #FF6B8A 45%, var(--blue) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .divider {
+    width: 48px; height: 4px; border-radius: 2px;
+    background: linear-gradient(90deg, var(--red), var(--blue));
+    margin-bottom: 20px;
   }
 
   /* ── CARD ── */
   .card {
-    background: var(--monday-card);
-    border: 1px solid var(--monday-border);
-    border-radius: 16px;
-    padding: 24px 28px;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 20px;
   }
-  .card-sm { padding: 16px 20px; border-radius: 12px; }
-
-  /* ── CHIP / BULLET ── */
-  .bullet-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .bullet-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 15px;
-    color: rgba(255,255,255,0.8);
-    line-height: 1.5;
-  }
-  .bullet-list li::before {
-    content: '';
-    flex-shrink: 0;
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: var(--monday-red);
-    margin-top: 7px;
-  }
-  .bullet-list.blue li::before { background: var(--monday-blue); }
-  .bullet-list.green li::before { background: var(--green); }
-
-  /* ── DIVIDER ── */
-  .divider {
-    width: 60px; height: 4px;
-    border-radius: 2px;
-    background: linear-gradient(90deg, var(--monday-red), var(--monday-blue));
-    margin-bottom: 24px;
+  .card-label {
+    font-size: 11px; font-weight: 700; letter-spacing: .1em;
+    text-transform: uppercase; margin-bottom: 12px;
   }
 
-  /* ── GRID ── */
-  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%; }
-  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; width: 100%; }
+  /* ── BULLET ── */
+  .bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .bullets li { display: flex; align-items: flex-start; gap: 10px; }
+  .bullets li::before {
+    content: ''; flex-shrink: 0; width: 6px; height: 6px;
+    border-radius: 50%; background: var(--red); margin-top: 8px;
+  }
+  .bullets.green li::before { background: var(--green); }
 
   /* ── CALLOUT ── */
   .callout {
-    border-left: 3px solid var(--monday-red);
-    padding: 16px 20px;
-    background: rgba(246,43,84,0.06);
-    border-radius: 0 12px 12px 0;
-    font-size: 15px;
-    color: rgba(255,255,255,0.85);
-    line-height: 1.6;
-    font-style: italic;
+    border-left: 3px solid var(--red); padding: 14px 18px;
+    background: rgba(246,43,84,.05); border-radius: 0 10px 10px 0;
+    color: rgba(255,255,255,.85); line-height: 1.6;
   }
-  .callout-blue {
-    border-left-color: var(--monday-blue);
-    background: rgba(0,133,255,0.06);
-  }
+  .callout-blue { border-left-color: var(--blue); background: rgba(0,133,255,.05); }
 
-  /* ──────────────────────────────
-     SLIDE 1 — TITLE
-  ────────────────────────────── */
-  #s1 {
-    background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(246,43,84,0.12) 0%, transparent 70%),
-                radial-gradient(ellipse 60% 50% at 80% 0%, rgba(0,133,255,0.10) 0%, transparent 70%),
-                var(--monday-dark);
-    text-align: center;
-  }
-  #s1 .subtitle {
-    font-size: clamp(16px, 2vw, 22px);
-    color: rgba(255,255,255,0.55);
-    font-weight: 400;
-    margin-top: 16px;
-    letter-spacing: -0.01em;
-  }
-  #s1 .tagline {
-    margin-top: 36px;
-    display: inline-block;
-    padding: 10px 22px;
-    border: 1px solid var(--monday-border);
-    border-radius: 99px;
-    font-size: 13px;
-    color: var(--monday-muted);
-    font-weight: 500;
-  }
-  .dot-grid {
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
-    background-size: 32px 32px;
-    pointer-events: none;
-  }
+  /* ── GRID ── */
+  .grid-2 { display: grid; grid-template-columns: 1fr; gap: 16px; width: 100%; }
+  @media (min-width: 640px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
 
-  /* ──────────────────────────────
-     SLIDE 2 — PROBLEM
-  ────────────────────────────── */
-  #s2 { align-items: flex-start; }
-  .scenario-card {
-    background: linear-gradient(135deg, rgba(246,43,84,0.08) 0%, rgba(0,133,255,0.05) 100%);
-    border: 1px solid rgba(246,43,84,0.2);
-    border-radius: 16px;
-    padding: 24px 28px;
-    position: relative;
-    overflow: hidden;
+  /* ── SCENARIO ── */
+  .scenario {
+    background: linear-gradient(135deg, rgba(246,43,84,.08), rgba(0,133,255,.05));
+    border: 1px solid rgba(246,43,84,.2); border-radius: 14px; padding: 20px;
   }
-  .scenario-card::before {
-    content: '⚠';
-    position: absolute;
-    top: -10px; right: 16px;
-    font-size: 64px;
-    opacity: 0.04;
-  }
-  .scenario-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--monday-red);
-    margin-bottom: 10px;
-  }
-  .scenario-text {
-    font-size: 15px;
-    line-height: 1.65;
-    color: rgba(255,255,255,0.85);
-  }
+  .scenario-label { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
 
-  /* ──────────────────────────────
-     SLIDE 3 — WHY IT MATTERS
-  ────────────────────────────── */
-  #s3 { align-items: flex-start; }
-  .impact-card {
-    background: var(--monday-card);
-    border: 1px solid var(--monday-border);
-    border-radius: 14px;
-    padding: 20px;
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-  }
+  /* ── IMPACT CARD ── */
+  .impact-card { display: flex; align-items: flex-start; gap: 14px; }
   .impact-icon {
-    font-size: 22px;
-    flex-shrink: 0;
-    width: 40px; height: 40px;
-    display: flex; align-items: center; justify-content: center;
-    background: rgba(246,43,84,0.1);
-    border-radius: 10px;
+    width: 40px; height: 40px; flex-shrink: 0; border-radius: 10px;
+    background: rgba(246,43,84,.1); display: flex; align-items: center; justify-content: center; font-size: 20px;
   }
-  .impact-text { font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.8); font-weight: 500; }
+  .impact-text { font-size: 14px; color: rgba(255,255,255,.8); font-weight: 500; line-height: 1.4; }
 
-  /* ──────────────────────────────
-     SLIDE 4 — WHY MONDAY
-  ────────────────────────────── */
-  #s4 { align-items: flex-start; }
-  .vs-col { display: flex; flex-direction: column; gap: 12px; }
-  .vs-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 4px;
-  }
-  .vs-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-    color: rgba(255,255,255,0.75);
-    line-height: 1.4;
-  }
-  .vs-icon { font-size: 16px; }
+  /* ── VS ── */
+  .vs-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(255,255,255,.75); margin-bottom: 10px; }
+  .vs-item:last-child { margin-bottom: 0; }
 
-  /* ──────────────────────────────
-     SLIDE 5 — MVP SCOPE
-  ────────────────────────────── */
-  #s5 { align-items: flex-start; }
-  .scope-in li::before { background: var(--green); }
-  .scope-out {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .scope-out-chip {
-    padding: 5px 12px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid var(--monday-border);
-    border-radius: 99px;
-    font-size: 12px;
-    color: var(--monday-muted);
-    font-weight: 500;
-    text-decoration: line-through;
-    text-decoration-color: rgba(255,255,255,0.15);
+  /* ── SCOPE CHIPS ── */
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    padding: 5px 12px; border-radius: 99px; font-size: 12px; font-weight: 500;
+    background: rgba(255,255,255,.04); border: 1px solid var(--border);
+    color: var(--muted); text-decoration: line-through;
   }
 
-  /* ──────────────────────────────
-     SLIDE 6 — SUCCESS + VISION
-  ────────────────────────────── */
-  #s6 { align-items: flex-start; }
-  .roadmap {
-    display: flex;
-    align-items: center;
-    gap: 0;
-    flex-wrap: wrap;
-    row-gap: 12px;
-  }
-  .roadmap-step {
-    display: flex;
-    align-items: center;
-    gap: 0;
-  }
-  .roadmap-node {
-    padding: 8px 14px;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 600;
-    white-space: nowrap;
-  }
-  .roadmap-node.highlight {
-    background: linear-gradient(135deg, var(--monday-red), #FF6B8A);
-    color: white;
-  }
-  .roadmap-node.dim {
-    background: var(--monday-card);
-    border: 1px solid var(--monday-border);
-    color: rgba(255,255,255,0.6);
-    font-size: 12px;
-  }
-  .roadmap-arrow {
-    color: var(--monday-muted);
-    font-size: 14px;
-    padding: 0 6px;
-  }
-
-  .success-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    font-size: 14px;
-    color: rgba(255,255,255,0.8);
-    line-height: 1.5;
-  }
+  /* ── SUCCESS ITEM ── */
+  .success-item { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: rgba(255,255,255,.8); line-height: 1.5; margin-bottom: 12px; }
   .success-icon {
-    width: 28px; height: 28px;
-    background: rgba(0,200,117,0.12);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 13px;
-    flex-shrink: 0;
-    border: 1px solid rgba(0,200,117,0.25);
+    width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%;
+    background: rgba(0,200,117,.12); border: 1px solid rgba(0,200,117,.25);
+    display: flex; align-items: center; justify-content: center; font-size: 13px;
   }
 
-  /* ── CLOSING LINE ── */
-  .closing {
-    text-align: center;
-    font-size: 14px;
-    color: var(--monday-muted);
-    font-style: italic;
-    line-height: 1.6;
-    margin-top: 4px;
+  /* ── ROADMAP ── */
+  .roadmap { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .rm-node { padding: 6px 12px; border-radius: 8px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+  .rm-node.highlight { background: linear-gradient(135deg, var(--red), #FF6B8A); color: white; }
+  .rm-node.dim { background: var(--card); border: 1px solid var(--border); color: rgba(255,255,255,.6); }
+  .rm-arrow { color: var(--muted); font-size: 13px; }
+
+  /* ── SLIDE 1 SPECIAL ── */
+  #s1 {
+    background: radial-gradient(ellipse 90% 60% at 50% 110%, rgba(246,43,84,.12), transparent 70%),
+                radial-gradient(ellipse 70% 50% at 90% 0%, rgba(0,133,255,.09), transparent 70%),
+                var(--dark);
+    text-align: center; align-items: center;
   }
+  .dot-bg {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image: radial-gradient(rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .s1-subtitle { font-size: clamp(15px,2vw,20px); color: rgba(255,255,255,.5); margin-top: 14px; font-weight: 400; }
+  .s1-tagline {
+    margin-top: 28px; padding: 9px 20px; border: 1px solid var(--border);
+    border-radius: 99px; font-size: 13px; color: var(--muted); font-weight: 500; display: inline-block;
+  }
+
+  /* ── SLIDE 4 ── */
+  .monday-wins-box {
+    background: linear-gradient(135deg, rgba(0,133,255,.06), rgba(155,109,255,.04));
+    border: 1px solid rgba(0,133,255,.25);
+  }
+
+  /* ── CLOSING ── */
+  .closing { font-size: 14px; color: var(--muted); font-style: italic; line-height: 1.6; text-align: center; margin-top: 16px; }
+
+  /* ── SLIDE NUMBER ── */
+  .slide-num {
+    position: absolute; top: 20px; right: 20px;
+    font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: .05em;
+  }
+
+  /* ── CONTENT WRAPPER ── */
+  .content { width: 100%; max-width: 900px; margin: 0 auto; }
 </style>
 </head>
 <body>
 
-<div class="logomark"><span>monday</span> eCommerce</div>
-<div class="progress-bar" id="progressBar"></div>
-
-<div class="deck">
-
-  <!-- ───── SLIDE 1: TITLE ───── -->
-  <div class="slide active" id="s1">
-    <div class="dot-grid"></div>
-    <div class="tag tag-red">MVP Plan · 2025</div>
-    <h1 class="gradient-text">monday eCommerce</h1>
-    <p class="subtitle">AI-First Revenue Protection for Shopify Brands</p>
-    <div class="tagline">A focused MVP to validate real customer value before broader expansion</div>
+<nav class="top-nav">
+  <div class="brand"><span>monday</span> eCommerce</div>
+  <div class="nav-dots">
+    <div class="dot active" onclick="goTo(0)"></div>
+    <div class="dot" onclick="goTo(1)"></div>
+    <div class="dot" onclick="goTo(2)"></div>
+    <div class="dot" onclick="goTo(3)"></div>
+    <div class="dot" onclick="goTo(4)"></div>
+    <div class="dot" onclick="goTo(5)"></div>
   </div>
+</nav>
 
-  <!-- ───── SLIDE 2: PROBLEM ───── -->
-  <div class="slide" id="s2">
+<!-- ── SLIDE 1: TITLE ── -->
+<div class="slide" id="s1" data-slide="0">
+  <div class="dot-bg"></div>
+  <div class="content" style="position:relative;">
+    <div class="tag tag-red" style="margin:0 auto 20px;">MVP Plan · 2025</div>
+    <h1 class="gradient-text">monday eCommerce</h1>
+    <p class="s1-subtitle">AI-First Revenue Protection for Shopify Brands</p>
+    <div class="s1-tagline">A focused MVP to validate real customer value before broader expansion</div>
+  </div>
+  <div class="slide-num">1 / 6</div>
+</div>
+
+<!-- ── SLIDE 2: PROBLEM ── -->
+<div class="slide" id="s2" data-slide="1">
+  <div class="content">
     <div class="tag tag-red">The Problem</div>
     <h2>eCommerce teams lose revenue because critical issues are detected <em>too late</em></h2>
     <div class="divider"></div>
 
-    <div style="width:100%;display:grid;grid-template-columns:1.1fr 1fr;gap:24px;margin-top:4px;">
-      <div style="display:flex;flex-direction:column;gap:16px;">
-        <div class="scenario-card">
-          <div class="scenario-label">Real Scenario</div>
-          <div class="scenario-text">
-            A hero SKU trends to stockout before a peak weekend. Campaigns keep driving traffic.
-            The team notices <strong style="color:var(--monday-red)">Saturday morning</strong>.
-            Result: lost revenue, wasted spend, and a reactive scramble.
-          </div>
-        </div>
-        <div class="callout" style="font-style:normal;">
-          This isn't a rare event. It's a <strong>weekly occurrence</strong> for mid-market eCommerce teams.
-        </div>
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div class="scenario">
+        <div class="scenario-label">Real Scenario</div>
+        <p style="color:rgba(255,255,255,.85);">
+          A hero SKU trends to stockout before a peak weekend. Campaigns keep driving traffic.
+          The team notices <strong style="color:var(--red)">Saturday morning</strong>.
+          Result: lost revenue, wasted spend, and a reactive scramble.
+        </p>
+      </div>
+
+      <div class="callout" style="font-style:normal;">
+        This isn't a rare event. It's a <strong>weekly occurrence</strong> for mid-market eCommerce teams.
       </div>
 
       <div class="card">
-        <h3 style="color:var(--monday-muted);font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;">Why it keeps happening</h3>
-        <ul class="bullet-list" style="gap:14px;">
-          <li>Signals are fragmented across storefront, ads, and inventory tools</li>
+        <div class="card-label" style="color:var(--muted);">Why it keeps happening</div>
+        <ul class="bullets">
+          <li>Shopify, Meta Ads, and inventory data live in 3+ separate tools with no unified view</li>
           <li>Ownership of issues is unclear — nobody's watching everything</li>
           <li>Current tools surface data, not prioritized action</li>
         </ul>
       </div>
     </div>
   </div>
+  <div class="slide-num">2 / 6</div>
+</div>
 
-  <!-- ───── SLIDE 3: WHY IT MATTERS ───── -->
-  <div class="slide" id="s3">
+<!-- ── SLIDE 3: WHY IT MATTERS ── -->
+<div class="slide" id="s3" data-slide="2">
+  <div class="content">
     <div class="tag tag-red">Why This Matters</div>
     <h2>This is a high-frequency, <span class="gradient-text">high-cost</span> problem</h2>
     <div class="divider"></div>
 
-    <div style="width:100%;display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:4px;">
-      <div class="impact-card"><div class="impact-icon">📦</div><div class="impact-text">Lost sales from stockouts on revenue-critical SKUs</div></div>
-      <div class="impact-card"><div class="impact-icon">💸</div><div class="impact-text">Wasted ad spend pushing traffic to out-of-stock products</div></div>
-      <div class="impact-card"><div class="impact-icon">⏱</div><div class="impact-text">Delayed detection and slow, manual resolution cycles</div></div>
-      <div class="impact-card"><div class="impact-icon">🔥</div><div class="impact-text">Reactive cross-team coordination that drains focus</div></div>
+    <div class="grid-2" style="margin-bottom:16px;">
+      <div class="card impact-card"><div class="impact-icon">📦</div><div class="impact-text">Lost sales from stockouts on revenue-critical SKUs</div></div>
+      <div class="card impact-card"><div class="impact-icon">💸</div><div class="impact-text">Wasted ad spend pushing traffic to out-of-stock products</div></div>
+      <div class="card impact-card"><div class="impact-icon">⏱</div><div class="impact-text">Delayed detection and slow, manual resolution cycles</div></div>
+      <div class="card impact-card"><div class="impact-icon">🔥</div><div class="impact-text">Reactive cross-team coordination that drains focus</div></div>
     </div>
 
-    <div class="callout" style="width:100%;margin-top:18px;font-style:normal;font-size:16px;border-left-width:4px;">
-      💡 Customers don't need more dashboards. They need a system that tells them <strong>what matters now</strong> — and who should act.
+    <div class="callout" style="font-style:normal;font-size:15px;border-left-width:4px;">
+      💡 Operators need a system that tells them <strong>what matters, why, and who should fix it</strong> — not another place to look.
     </div>
   </div>
+  <div class="slide-num">3 / 6</div>
+</div>
 
-  <!-- ───── SLIDE 4: WHY MONDAY ───── -->
-  <div class="slide" id="s4">
+<!-- ── SLIDE 4: WHY MONDAY ── -->
+<div class="slide" id="s4" data-slide="3">
+  <div class="content">
     <div class="tag tag-blue">Why monday Can Win</div>
-    <h2>monday can connect <span class="gradient-text">detection to action</span></h2>
-    <div class="divider"></div>
+    <h2>monday already owns the <span class="gradient-text">work layer</span>. We're adding the intelligence layer.</h2>
+    <div class="divider" style="background:linear-gradient(90deg,var(--blue),var(--purple));"></div>
 
-    <div class="grid-2" style="margin-top:4px;align-items:start;">
-      <div class="card" style="border-color:rgba(255,255,255,0.06);">
-        <div class="vs-label" style="color:var(--monday-muted);">❌ What others do</div>
-        <div class="vs-col" style="margin-top:12px;">
-          <div class="vs-item"><span class="vs-icon">📊</span> Analytics tools stop at alerts</div>
-          <div class="vs-item"><span class="vs-icon">📉</span> Dashboards show data without ownership</div>
-          <div class="vs-item"><span class="vs-icon">🤷</span> Insights nobody operationalizes</div>
-          <div class="vs-item"><span class="vs-icon">🔀</span> Fragmented coordination across tools</div>
-        </div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-label" style="color:var(--muted);">❌ What others do</div>
+        <div class="vs-item">📊 Stop at alerts — no action, no owner</div>
+        <div class="vs-item">📉 Show dashboards without accountability</div>
+        <div class="vs-item">🤷 Insights that nobody operationalizes</div>
+        <div class="vs-item">🔀 Fragmented coordination across tools</div>
       </div>
 
-      <div class="card" style="border-color:rgba(0,133,255,0.25);background:linear-gradient(135deg,rgba(0,133,255,0.06),rgba(155,109,255,0.04));">
-        <div class="vs-label" style="color:var(--monday-blue);">✅ What monday does</div>
-        <div class="vs-col" style="margin-top:12px;">
-          <div class="vs-item"><span class="vs-icon">👤</span> Clear workflow ownership per issue</div>
-          <div class="vs-item"><span class="vs-icon">🤝</span> Built-in cross-team collaboration</div>
-          <div class="vs-item"><span class="vs-icon">✅</span> Execution tracking and audit trail</div>
-          <div class="vs-item"><span class="vs-icon">👁</span> Cross-team visibility by default</div>
-        </div>
+      <div class="card monday-wins-box">
+        <div class="card-label" style="color:var(--blue);">✅ What monday adds</div>
+        <div class="vs-item">👤 Clear workflow ownership per issue</div>
+        <div class="vs-item">🤝 Built-in cross-team collaboration</div>
+        <div class="vs-item">✅ Execution tracking and audit trail</div>
+        <div class="vs-item">👁 Cross-team visibility by default</div>
       </div>
     </div>
 
-    <div class="callout callout-blue" style="width:100%;margin-top:18px;font-style:normal;">
-      Not another analytics tool. Not generic AI chat. <strong>A work system for detecting and resolving revenue-critical issues.</strong>
+    <div class="callout callout-blue" style="font-style:normal;margin-top:16px;">
+      Not another analytics tool. Not generic AI chat. <strong>The missing intelligence layer on top of monday's existing work platform.</strong>
     </div>
   </div>
+  <div class="slide-num">4 / 6</div>
+</div>
 
-  <!-- ───── SLIDE 5: MVP SCOPE ───── -->
-  <div class="slide" id="s5">
+<!-- ── SLIDE 5: MVP SCOPE ── -->
+<div class="slide" id="s5" data-slide="4">
+  <div class="content">
     <div class="tag tag-green">MVP Scope</div>
     <h2>One focused hero workflow: <span style="color:var(--green);">Inventory-Driven Revenue Risk</span></h2>
-    <div class="divider" style="background:linear-gradient(90deg,var(--green),var(--monday-blue));"></div>
+    <div class="divider" style="background:linear-gradient(90deg,var(--green),var(--blue));"></div>
 
-    <div class="grid-2" style="margin-top:4px;align-items:start;">
-      <div class="card" style="border-color:rgba(0,200,117,0.2);background:rgba(0,200,117,0.04);">
-        <h3 style="color:var(--green);font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;">✅ In Scope</h3>
-        <ul class="bullet-list scope-in">
+    <div class="grid-2">
+      <div class="card" style="border-color:rgba(0,200,117,.2);background:rgba(0,200,117,.03);">
+        <div class="card-label" style="color:var(--green);">✅ In Scope</div>
+        <ul class="bullets green">
           <li>Shopify integration</li>
-          <li>Detect high-value SKUs at risk of stockout</li>
+          <li>Detect high-value SKUs at stockout risk</li>
           <li>Estimate revenue at risk</li>
           <li>Show likely cause and context</li>
           <li>Recommend next action</li>
-          <li>Assign owner &amp; track resolution in monday</li>
+          <li>Assign owner + track resolution in monday</li>
           <li>Prioritized daily issue queue</li>
         </ul>
       </div>
 
-      <div style="display:flex;flex-direction:column;gap:16px;">
-        <div class="card" style="border-color:rgba(246,43,84,0.15);background:rgba(246,43,84,0.03);">
-          <h3 style="color:var(--monday-muted);font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px;">🚫 Out of Scope</h3>
-          <div class="scope-out">
-            <span class="scope-out-chip">Autonomous execution</span>
-            <span class="scope-out-chip">Broad workflow builder</span>
-            <span class="scope-out-chip">Multiple integrations</span>
-            <span class="scope-out-chip">Full eCommerce suite</span>
-            <span class="scope-out-chip">Chat-first interface</span>
-            <span class="scope-out-chip">Returns / reviews</span>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div class="card" style="border-color:rgba(246,43,84,.15);background:rgba(246,43,84,.03);">
+          <div class="card-label" style="color:var(--muted);">🚫 Out of Scope</div>
+          <div class="chips">
+            <span class="chip">Autonomous execution</span>
+            <span class="chip">Broad workflow builder</span>
+            <span class="chip">Multiple integrations</span>
+            <span class="chip">Full eCommerce suite</span>
+            <span class="chip">Chat-first interface</span>
+            <span class="chip">Returns / reviews</span>
           </div>
         </div>
         <div class="callout" style="font-style:normal;font-size:14px;">
@@ -551,33 +341,38 @@
       </div>
     </div>
   </div>
+  <div class="slide-num">5 / 6</div>
+</div>
 
-  <!-- ───── SLIDE 6: SUCCESS + VISION ───── -->
-  <div class="slide" id="s6">
+<!-- ── SLIDE 6: SUCCESS + VISION ── -->
+<div class="slide" id="s6" data-slide="5">
+  <div class="content">
     <div class="tag tag-purple">What Success Looks Like</div>
     <h2>90-day pilot signal — then we <span class="gradient-text">expand</span></h2>
-    <div class="divider" style="background:linear-gradient(90deg,var(--purple),var(--monday-blue));"></div>
+    <div class="divider" style="background:linear-gradient(90deg,var(--purple),var(--blue));"></div>
 
-    <div class="grid-2" style="margin-top:4px;align-items:start;">
+    <div class="grid-2" style="margin-bottom:16px;">
       <div class="card">
-        <h3 style="color:var(--green);font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;">90-Day Pilot Success</h3>
-        <div style="display:flex;flex-direction:column;gap:14px;">
-          <div class="success-item"><div class="success-icon">🎯</div>Issues surfaced early enough to matter</div>
-          <div class="success-item"><div class="success-icon">✅</div>Operators act on them weekly</div>
-          <div class="success-item"><div class="success-icon">⚡</div>Time to ownership and resolution measurably improves</div>
-          <div class="success-item"><div class="success-icon">💰</div>At least one prevented revenue-loss event captured</div>
-        </div>
+        <div class="card-label" style="color:var(--green);">90-Day Pilot Success</div>
+        <div class="success-item"><div class="success-icon">🎯</div>Issues surfaced early enough to matter</div>
+        <div class="success-item"><div class="success-icon">✅</div>Operators act on them weekly</div>
+        <div class="success-item"><div class="success-icon">⚡</div>Time to ownership and resolution improves</div>
+        <div class="success-item"><div class="success-icon">💰</div>At least one prevented revenue-loss event captured</div>
       </div>
 
       <div style="display:flex;flex-direction:column;gap:14px;">
-        <div class="card" style="border-color:rgba(155,109,255,0.2);">
-          <h3 style="color:var(--purple);font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;">Expansion Path</h3>
+        <div class="card" style="border-color:rgba(155,109,255,.2);">
+          <div class="card-label" style="color:var(--purple);">Expansion Path</div>
           <div class="roadmap">
-            <div class="roadmap-step"><div class="roadmap-node highlight">MVP</div><div class="roadmap-arrow">→</div></div>
-            <div class="roadmap-step"><div class="roadmap-node dim">Conversion Drops</div><div class="roadmap-arrow">→</div></div>
-            <div class="roadmap-step"><div class="roadmap-node dim">Campaign Ops</div><div class="roadmap-arrow">→</div></div>
-            <div class="roadmap-step"><div class="roadmap-node dim">Catalog Intel</div><div class="roadmap-arrow">→</div></div>
-            <div class="roadmap-node dim" style="border-color:rgba(155,109,255,0.3);color:var(--purple);">Full AI Control Plane</div>
+            <div class="rm-node highlight">MVP</div>
+            <span class="rm-arrow">→</span>
+            <div class="rm-node dim">Conversion Drops</div>
+            <span class="rm-arrow">→</span>
+            <div class="rm-node dim">Campaign Ops</div>
+            <span class="rm-arrow">→</span>
+            <div class="rm-node dim">Catalog Intel</div>
+            <span class="rm-arrow">→</span>
+            <div class="rm-node dim" style="border-color:rgba(155,109,255,.3);color:var(--purple);">Multi-store / Agency</div>
           </div>
         </div>
         <div class="callout callout-blue" style="font-size:13px;">
@@ -587,43 +382,36 @@
       </div>
     </div>
 
-    <p class="closing" style="width:100%;margin-top:16px;">
-      "We're not building an eCommerce platform. We're proving one focused AI-first workflow that solves an expensive recurring problem — and plays to monday's strengths."
-    </p>
+    <div class="callout" style="font-style:normal;border-left-color:var(--purple);background:rgba(155,109,255,.05);">
+      <strong>The ask:</strong> Approve this MVP scope so we can begin design partner outreach and integration scoping for Shopify + inventory risk detection.
+    </div>
+
+    <p class="closing">"We're not building an eCommerce platform. We're proving one focused AI-first workflow that solves an expensive recurring problem — and plays to monday's strengths."</p>
   </div>
-
-</div><!-- /deck -->
-
-<nav class="nav">
-  <button class="nav-btn" id="prevBtn" onclick="navigate(-1)">‹</button>
-  <span class="slide-counter" id="counter">1 / 6</span>
-  <button class="nav-btn" id="nextBtn" onclick="navigate(1)">›</button>
-</nav>
+  <div class="slide-num">6 / 6</div>
+</div>
 
 <script>
   const slides = document.querySelectorAll('.slide');
-  const counter = document.getElementById('counter');
-  const progressBar = document.getElementById('progressBar');
-  const total = slides.length;
-  let current = 0;
+  const dots = document.querySelectorAll('.dot');
 
-  function showSlide(n) {
-    slides[current].classList.remove('active');
-    current = (n + total) % total;
-    slides[current].classList.add('active');
-    counter.textContent = (current + 1) + ' / ' + total;
-    progressBar.style.width = ((current + 1) / total * 100) + '%';
+  function updateDots() {
+    const scrollPos = window.scrollY;
+    const winH = window.innerHeight;
+    let activeIdx = 0;
+    slides.forEach((s, i) => {
+      const top = s.offsetTop;
+      if (scrollPos >= top - winH / 2) activeIdx = i;
+    });
+    dots.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
   }
 
-  function navigate(dir) { showSlide(current + dir); }
+  function goTo(idx) {
+    slides[idx].scrollIntoView({ behavior: 'smooth' });
+  }
 
-  document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') navigate(1);
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') navigate(-1);
-  });
-
-  // Init progress bar
-  progressBar.style.width = (1 / total * 100) + '%';
+  window.addEventListener('scroll', updateDots, { passive: true });
+  updateDots();
 </script>
 </body>
 </html>
