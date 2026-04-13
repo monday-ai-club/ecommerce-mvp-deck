@@ -28,9 +28,7 @@ monday already owns the work layer. We're adding the intelligence layer. Analyti
 
 ## View the Deck
 
-Open `deck.html` in your browser or visit the [GitHub Pages](https://monday-ai-club.github.io/ecommerce-mvp-deck/deck.html) link when available.
+Open `deck.html` in your browser or visit the [GitHub Pages](https://monday-ai-club.github.io/ecommerce-mvp-deck
 
 ---
-
-*Built by the monday AI Club 🤕**
-*Written by AI 🤥*
+_Last updated by Ellie — write access confirmed ✅_
