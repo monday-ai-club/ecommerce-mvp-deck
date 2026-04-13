@@ -72,12 +72,22 @@ h2 { font-size: clamp(22px, 5.5vw, 40px); font-weight: 800; line-height: 1.15; l
 .gap-sm { height: 12px; } .gap-md { height: 20px; }
 #s1 { position: relative; overflow: hidden; background: radial-gradient(ellipse 110% 70% at 50% 120%, rgba(246,43,84,.14), transparent 65%), radial-gradient(ellipse 80% 60% at 90% -10%, rgba(0,133,255,.10), transparent 65%), var(--dark); justify-content: center; align-items: flex-start; }
 .s1-tagline { display: inline-block; margin-top: 24px; padding: 10px 18px; border: 1px solid var(--border); border-radius: 99px; font-size: 13px; color: var(--muted); font-weight: 500; }
+.comp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+@media (max-width: 700px) { .comp-grid { grid-template-columns: 1fr; } }
+.comp-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px; }
+.comp-name { font-size: 13px; font-weight: 700; color: rgba(255,255,255,.9); margin-bottom: 4px; }
+.comp-tag { font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+.comp-can { font-size: 12px; color: rgba(0,200,117,.9); margin-bottom: 4px; }
+.comp-cant { font-size: 12px; color: rgba(246,43,84,.9); }
 .phase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 @media (max-width: 600px) { .phase-grid { grid-template-columns: 1fr; } }
 .phase-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
 .phase-title { font-size: 12px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
 .phase-weeks { font-size: 11px; color: var(--muted); margin-bottom: 8px; }
 .phase-items { font-size: 13px; color: rgba(255,255,255,.75); line-height: 1.6; }
+.agent-flow { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 14px 0; }
+.agent-step { background: rgba(0,133,255,.08); border: 1px solid rgba(0,133,255,.2); border-radius: 10px; padding: 8px 14px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,.85); }
+.agent-arrow { color: var(--muted); font-size: 18px; }
 </style>
 </head>
 <body>
@@ -92,77 +102,94 @@ h2 { font-size: clamp(22px, 5.5vw, 40px); font-weight: 800; line-height: 1.15; l
   <div style="position:relative; width:100%; max-width:720px;">
     <div class="eyebrow eyebrow-red">Net-New Vertical Product · 2025</div>
     <h1 class="gradient">monday<br/>eCommerce</h1>
-    <p class="subtitle">AI-First Revenue Protection<br/>for Shopify Brands</p>
-    <div class="s1-tagline">A focused pilot to validate real customer value before broader expansion</div>
+    <p class="subtitle">AI Agents that run your eCommerce operations —<br/>built on monday, delivered by monday</p>
+    <div class="s1-tagline">The first vertical product built by AI agents, operated by AI agents, on monday's own platform</div>
   </div>
 </div>
 
-<!-- SLIDE 2: THE PROBLEM -->
+<!-- SLIDE 2: THE PROBLEM + WHY IT MATTERS (merged) -->
 <div class="slide" id="s2">
   <div class="eyebrow eyebrow-red">The Problem</div>
   <h2>eCommerce teams lose revenue because critical issues are detected <em>too late</em></h2>
   <div class="rule"></div>
   <div class="scenario">
-    <div class="scenario-tag">Real scenario</div>
-    <p>A hero SKU trends to stockout before a peak weekend. Campaigns keep driving traffic. The team notices <strong>Saturday morning</strong>. Result: lost revenue, wasted spend, and a reactive scramble — every single week.</p>
+    <div class="scenario-tag">Every week, somewhere</div>
+    <p>A hero SKU trends to stockout before a peak weekend. Campaigns keep driving traffic. The team notices <strong>Saturday morning</strong>. Lost revenue. Wasted spend. Reactive scramble.</p>
+  </div>
+  <div class="gap-sm"></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+    <div class="impact-item"><div class="impact-icon">📦</div><div class="impact-text"><strong>8–15% of GMV</strong> lost to stockouts each month</div></div>
+    <div class="impact-item"><div class="impact-icon">💸</div><div class="impact-text"><strong>30% of ad budget</strong> wasted driving traffic to unavailable SKUs</div></div>
+    <div class="impact-item"><div class="impact-icon">⏱</div><div class="impact-text"><strong>18–36 hrs</strong> before teams detect a live issue</div></div>
+    <div class="impact-item"><div class="impact-icon">🔥</div><div class="impact-text"><strong>4+ hrs per incident</strong> of manual, cross-team triage</div></div>
   </div>
   <div class="gap-sm"></div>
   <div class="callout" style="font-style:normal;">
-    Industry data: stockouts cost retailers <strong>~$1T in lost sales annually</strong> (IHL Group). For Shopify mid-market brands, a single peak weekend stockout erases <strong>15–25% of weekly revenue</strong>.
-  </div>
-  <div class="gap-md"></div>
-  <div class="card">
-    <div class="label" style="color:var(--muted)">Why it keeps happening</div>
-    <ul class="list">
-      <li>Shopify storefront performance lives in one system</li>
-      <li>Meta Ads performance lives in another</li>
-      <li>Inventory and fulfillment signals live in a third</li>
-      <li>Teams manually connect the dots under time pressure — costly issues are detected late, acted on slowly</li>
-    </ul>
+    Industry data: stockouts cost retailers <strong>~$1T annually</strong> (IHL Group). The data to prevent this already exists — it's just sitting in silos, unwatched.
   </div>
 </div>
 
-<!-- SLIDE 3: WHY IT MATTERS -->
+<!-- SLIDE 3: THE FOUNDATION -->
 <div class="slide" id="s3">
-  <div class="eyebrow eyebrow-red">Why This Matters</div>
-  <h2>This is a <span class="gradient">high-frequency, high-cost</span> problem</h2>
-  <div class="rule"></div>
-  <div style="display:flex;flex-direction:column;gap:12px;">
-    <div class="impact-item"><div class="impact-icon">📦</div><div class="impact-text">Lost sales from stockouts — <strong>avg. 8–15% of monthly GMV</strong> for mid-market brands during peak periods</div></div>
-    <div class="impact-item"><div class="impact-icon">💸</div><div class="impact-text">Wasted ad spend pushing traffic to out-of-stock products — <strong>up to 30% of campaign budget</strong> lost during peak events</div></div>
-    <div class="impact-item"><div class="impact-icon">⏱</div><div class="impact-text">Delayed detection — teams typically notice issues <strong>18–36 hours after they start</strong>, compounding damage</div></div>
-    <div class="impact-item"><div class="impact-icon">🔥</div><div class="impact-text">Reactive coordination that drains focus — <strong>avg. 4+ hours per incident</strong> of manual, cross-team triage</div></div>
-  </div>
-  <div class="gap-md"></div>
-  <div class="callout" style="font-style:normal;font-size:15px;border-left-width:4px;">
-    <strong>Operators don't need another place to look.</strong><br/>They need a system that tells them what matters, why, and who should fix it — before the damage is done.
-  </div>
-</div>
-
-<!-- SLIDE 4: THE GAP -->
-<div class="slide" id="s4">
   <div class="eyebrow eyebrow-blue">monday Today — The Foundation</div>
   <h2>The plumbing already exists.<br/><span class="gradient">The brain doesn't.</span></h2>
   <div class="rule" style="background:linear-gradient(90deg,var(--blue),var(--purple));"></div>
   <div class="card" style="margin-bottom:14px;">
     <div class="label" style="color:var(--green);">✅ monday's existing Lego blocks</div>
     <div class="vs-item">📋 <strong>monday Boards</strong> — structured data store for orders, SKUs, inventory, issues</div>
-    <div class="vs-item">📊 <strong>monday Dashboards</strong> — real-time analytics already used by ops teams</div>
-    <div class="vs-item">⚡ <strong>monday Automations</strong> — trigger-based workflows (e.g. inventory drop → create item + assign owner)</div>
-    <div class="vs-item">🏗️ <strong>monday vibe</strong> — AI no-code app builder (prompt → custom commerce UI/storefront)</div>
-    <div class="vs-item">🛒 <strong>Shopify connector (live)</strong> — syncs orders, inventory, customers into boards. Available in both monday's App Marketplace <em>and</em> the Shopify App Store</div>
-    <div class="vs-item">🤖 <strong>monday AI Agents</strong> — autonomous work inside the platform (launched 2025)</div>
+    <div class="vs-item">📊 <strong>monday Dashboards</strong> — real-time analytics layer already used by ops teams</div>
+    <div class="vs-item">⚡ <strong>monday Automations</strong> — trigger-based workflows (inventory drop → item + owner)</div>
+    <div class="vs-item">🏗️ <strong>monday vibe</strong> — AI no-code app builder: prompt → custom commerce UI</div>
+    <div class="vs-item">🤖 <strong>monday AI Agents</strong> — autonomous agents that act inside the platform (2025)</div>
+    <div class="vs-item">🛒 <strong>Shopify connector (live)</strong> — syncs orders, inventory, customers. Available in monday's App Marketplace <em>and</em> the Shopify App Store</div>
   </div>
   <div class="card" style="border-color:rgba(246,43,84,.25);background:rgba(246,43,84,.04);margin-bottom:14px;">
     <div class="label" style="color:var(--red);">❌ What the current integration can't do</div>
-    <div class="vs-item">📦 Data syncs in — but nothing watches it proactively</div>
-    <div class="vs-item">🚨 No stockout risk detection or revenue-at-risk scoring</div>
-    <div class="vs-item">📣 No ad spend signal correlation (Meta Ads, Google Ads)</div>
-    <div class="vs-item">🎯 No prioritized issue queue — teams still manually triage</div>
-    <div class="vs-item">👤 No automatic owner assignment or resolution tracking</div>
+    <div class="vs-item">📦 Data syncs in — but nothing watches it or acts on it</div>
+    <div class="vs-item">🚨 No stockout risk scoring or revenue-at-risk estimation</div>
+    <div class="vs-item">📣 No ad spend signal correlation</div>
+    <div class="vs-item">🎯 No prioritized issue queue or automatic owner assignment</div>
   </div>
   <div class="callout callout-blue" style="font-style:normal;">
-    <strong>The Shopify connector moves data. monday Commerce adds the layer that turns data into action.</strong> We're not building from scratch — we're adding AI intelligence on top of infrastructure monday already owns.
+    <strong>The Shopify connector moves data. monday eCommerce adds the agent layer that turns data into autonomous action.</strong>
+  </div>
+</div>
+
+<!-- SLIDE 4: COMPETITIVE LANDSCAPE -->
+<div class="slide" id="s4">
+  <div class="eyebrow eyebrow-red">Competitive Landscape</div>
+  <h2>Everyone shows data.<br/><span class="gradient">Nobody operationalizes it.</span></h2>
+  <div class="rule"></div>
+  <div class="comp-grid" style="margin-bottom:16px;">
+    <div class="comp-card">
+      <div class="comp-name">Triple Whale</div>
+      <div class="comp-tag">eComm analytics</div>
+      <div class="comp-can">✅ Attribution, ROAS, LTV analytics</div>
+      <div class="comp-cant">❌ No risk detection<br/>❌ No owner assignment<br/>❌ No resolution tracking</div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-name">Northbeam</div>
+      <div class="comp-tag">Marketing analytics</div>
+      <div class="comp-can">✅ Cross-channel attribution</div>
+      <div class="comp-cant">❌ No inventory signals<br/>❌ No actionable workflows<br/>❌ No AI agents</div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-name">Gorgias</div>
+      <div class="comp-tag">eComm support</div>
+      <div class="comp-can">✅ Customer support workflows</div>
+      <div class="comp-cant">❌ Reactive only (post-issue)<br/>❌ No proactive risk layer<br/>❌ Not ops-focused</div>
+    </div>
+  </div>
+  <div class="card" style="border-color:rgba(0,200,117,.2);background:rgba(0,200,117,.03);">
+    <div class="label" style="color:var(--green);">✅ monday eCommerce — the missing layer</div>
+    <div class="vs-item">🤖 AI agents that detect risk <em>before</em> it becomes damage</div>
+    <div class="vs-item">📋 Issues surface directly in monday boards with context + recommended action</div>
+    <div class="vs-item">👤 Automatic owner assignment + resolution tracking built in</div>
+    <div class="vs-item">🔁 Built on monday's own platform — not another siloed tool</div>
+  </div>
+  <div class="gap-sm"></div>
+  <div class="callout callout-blue" style="font-style:normal;">
+    <strong>Analytics tools stop at insight. Salesforce Commerce Cloud is moving this direction.</strong> monday has the platform advantage to beat them — with AI agents that close the loop from detection to resolution.
   </div>
 </div>
 <!-- SLIDE 5: WHY NOW -->
@@ -171,82 +198,89 @@ h2 { font-size: clamp(22px, 5.5vw, 40px); font-weight: 800; line-height: 1.15; l
   <h2>The window to own <span class="gradient">AI-native commerce ops</span> is open — right now.</h2>
   <div class="rule" style="background:linear-gradient(90deg,var(--purple),var(--blue));"></div>
   <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:20px;">
-    <div class="impact-item"><div class="impact-icon" style="background:rgba(155,109,255,.1);">🤖</div><div class="impact-text"><strong>AI-native tooling is mature.</strong> LLMs, embeddings, and anomaly detection are production-ready. What required a data science team in 2022 is a 3-engineer sprint in 2025.</div></div>
-    <div class="impact-item"><div class="impact-icon" style="background:rgba(0,133,255,.1);">🛒</div><div class="impact-text"><strong>Shopify ecosystem is at scale.</strong> 2M+ active merchants, $235B+ GMV annually. The mid-market segment (monday's ICP) is underserved by AI tooling.</div></div>
-    <div class="impact-item"><div class="impact-icon" style="background:rgba(0,200,117,.1);">🚀</div><div class="impact-text"><strong>monday's vertical expansion moment.</strong> Platform maturity + brand trust = right time to own a vertical. First-mover advantage before Salesforce, HubSpot, or a funded startup claims it.</div></div>
-    <div class="impact-item"><div class="impact-icon" style="background:rgba(246,43,84,.1);">⚔️</div><div class="impact-text"><strong>The category is being claimed now.</strong> Salesforce Commerce Cloud is expanding AI ops features. Funded startups (e.g. Daydream, Triple Whale) are adding workflow layers. monday has the platform leverage to win — but only if we move first.</div></div>
+    <div class="impact-item"><div class="impact-icon" style="background:rgba(155,109,255,.1);">🤖</div><div class="impact-text"><strong>AI agents are production-ready.</strong> monday AI Agents launched 2025. What required a full ML team in 2022 is now a 3-engineer agentic sprint.</div></div>
+    <div class="impact-item"><div class="impact-icon" style="background:rgba(0,133,255,.1);">🛒</div><div class="impact-text"><strong>Shopify ecosystem is at scale.</strong> 2M+ active merchants, $235B+ GMV annually. Mid-market brands (monday's ICP) are underserved by AI ops tooling.</div></div>
+    <div class="impact-item"><div class="impact-icon" style="background:rgba(0,200,117,.1);">🚀</div><div class="impact-text"><strong>monday's vertical expansion moment.</strong> Platform maturity + existing Shopify connector + AI Agents = uniquely positioned. Nobody else has all three.</div></div>
+    <div class="impact-item"><div class="impact-icon" style="background:rgba(246,43,84,.1);">⚔️</div><div class="impact-text"><strong>The category is being claimed now.</strong> Salesforce Commerce Cloud is expanding AI ops. Funded startups (Daydream, Alloy) are adding workflow layers. monday moves first or cedes the space.</div></div>
   </div>
   <div class="callout callout-purple" style="font-style:normal;">
-    <strong>This is not a feature request.</strong> It's a category bet — and the timing to make it is now.
+    <strong>This is not a feature request.</strong> It's a category bet — and the window to make it is now.
   </div>
 </div>
 
-<!-- SLIDE 6: MVP SCOPE -->
+<!-- SLIDE 6: THE PRODUCT — AGENTIC -->
 <div class="slide" id="s6">
-  <div class="eyebrow eyebrow-green">MVP Scope</div>
-  <h2>One hero workflow:<br/><span style="color:var(--green)">Inventory-Driven Revenue Risk</span></h2>
+  <div class="eyebrow eyebrow-green">The Product</div>
+  <h2>An AI agent that runs your<br/><span style="color:var(--green)">eCommerce operations 24/7</span></h2>
   <div class="rule" style="background:linear-gradient(90deg,var(--green),var(--blue));"></div>
-  <div class="card" style="border-color:rgba(0,200,117,.2);background:rgba(0,200,117,.03);margin-bottom:14px;">
-    <div class="label" style="color:var(--green);">✅ In Scope</div>
-    <ul class="list green">
-      <li>Shopify OAuth integration — connect store data securely</li>
-      <li>Detect high-value SKUs trending toward stockout</li>
-      <li>Estimate revenue at risk per SKU in real time</li>
-      <li>Show likely cause and context (ad spend, velocity, seasonality)</li>
-      <li>Recommend next action (pause campaign, reorder, reroute)</li>
-      <li>Assign owner and track resolution in monday boards</li>
-      <li>Prioritized daily issue queue — operators see what matters most</li>
-    </ul>
+  <div class="callout callout-green" style="font-style:normal;margin-bottom:16px;">
+    <strong>No dashboard to check. No alert to miss.</strong> The agent watches, detects, prioritizes, and acts — automatically.
+  </div>
+  <div class="card" style="margin-bottom:14px;">
+    <div class="label" style="color:var(--blue);">How the agent works</div>
+    <div class="agent-flow">
+      <div class="agent-step">🔌 Connect Shopify</div>
+      <div class="agent-arrow">→</div>
+      <div class="agent-step">👁 Agent monitors 24/7</div>
+      <div class="agent-arrow">→</div>
+      <div class="agent-step">🚨 Detects risk</div>
+      <div class="agent-arrow">→</div>
+      <div class="agent-step">💰 Scores revenue impact</div>
+      <div class="agent-arrow">→</div>
+      <div class="agent-step">📋 Creates board item</div>
+      <div class="agent-arrow">→</div>
+      <div class="agent-step">👤 Assigns owner</div>
+      <div class="agent-arrow">→</div>
+      <div class="agent-step">✅ Tracks resolution</div>
+    </div>
   </div>
   <div class="card" style="border-color:rgba(246,43,84,.15);background:rgba(246,43,84,.03);margin-bottom:14px;">
-    <div class="label" style="color:var(--muted);">🚫 Out of Scope (MVP)</div>
+    <div class="label" style="color:var(--muted);">🚫 Out of scope (pilot)</div>
     <div class="chips">
       <span class="chip">Autonomous execution</span>
-      <span class="chip">Broad workflow builder</span>
-      <span class="chip">Multi-platform integrations</span>
+      <span class="chip">Multi-channel integrations</span>
       <span class="chip">Full eCommerce suite</span>
       <span class="chip">Returns / reviews</span>
     </div>
   </div>
   <div class="callout" style="font-style:normal;">
-    <strong>One bet.</strong> Win one expensive recurring problem before expanding. Prove the value loop before building the platform.
+    <strong>One bet.</strong> Win one expensive recurring problem before expanding. Prove the agent loop works before building the platform.
   </div>
 </div>
 
 <!-- SLIDE 7: TECHNICAL APPROACH + ROADMAP -->
 <div class="slide" id="s7">
-  <div class="eyebrow eyebrow-blue">Technical Approach</div>
-  <h2>Simple architecture.<br/><span class="gradient">Fast to ship.</span></h2>
+  <div class="eyebrow eyebrow-blue">How We Build It</div>
+  <h2>Built by agents.<br/><span class="gradient">Delivered by agents.</span></h2>
   <div class="rule" style="background:linear-gradient(90deg,var(--blue),var(--green));"></div>
   <div class="card" style="margin-bottom:16px;">
-    <div class="label" style="color:var(--blue);">Architecture — 4 layers</div>
-    <div class="vs-item">🔐 <strong>Shopify OAuth App</strong> — secure store connection, webhook subscriptions for inventory + order events</div>
-    <div class="vs-item">⚙️ <strong>Ingestion + Normalization</strong> — real-time pipeline, unify SKU data with ad spend signals</div>
-    <div class="vs-item">🤖 <strong>AI Detection Engine</strong> — anomaly detection + revenue-at-risk scoring, ranked issue queue</div>
-    <div class="vs-item">📋 <strong>monday Surface</strong> — issues appear as board items, owner assigned, resolution tracked</div>
+    <div class="label" style="color:var(--blue);">Architecture — 4 layers, all on monday's platform</div>
+    <div class="vs-item">🔐 <strong>Shopify OAuth App</strong> — built on monday's Apps Framework, webhooks for real-time inventory + order signals</div>
+    <div class="vs-item">⚙️ <strong>Data ingestion + normalization</strong> — unified SKU + ad spend pipeline into monday Boards</div>
+    <div class="vs-item">🤖 <strong>monday AI Agent</strong> — anomaly detection, revenue-at-risk scoring, ranked issue queue, action recommendations</div>
+    <div class="vs-item">🏗️ <strong>monday vibe surface</strong> — merchant-facing UI generated from prompt; boards + dashboards for ops visibility</div>
   </div>
-  <div class="gap-sm"></div>
-  <div class="label" style="color:var(--muted);">Implementation Roadmap — 1 Quarter · 1 PM + 3 Engineers</div>
+  <div class="label" style="color:var(--muted);">1-Quarter Roadmap — 1 PM + 3 Engineers (agent-assisted)</div>
   <div class="phase-grid">
     <div class="phase-card">
       <div class="phase-title">Phase 1</div>
       <div class="phase-weeks">Q1 Wk 1–3</div>
-      <div class="phase-items">Shopify OAuth app · Webhook setup · Data ingestion pipeline · Schema design</div>
+      <div class="phase-items">Shopify OAuth app · Webhook setup · Data ingestion · Schema design</div>
     </div>
     <div class="phase-card">
       <div class="phase-title">Phase 2</div>
       <div class="phase-weeks">Q1 Wk 4–6</div>
-      <div class="phase-items">AI detection engine · Risk scoring model · Revenue-at-risk estimation · Alert logic</div>
+      <div class="phase-items">monday AI Agent · Risk scoring · Revenue-at-risk estimation · Alert logic</div>
     </div>
     <div class="phase-card">
       <div class="phase-title">Phase 3</div>
       <div class="phase-weeks">Q1 Wk 7–9</div>
-      <div class="phase-items">monday board integration · Owner assignment · Resolution tracking · Daily queue UI</div>
+      <div class="phase-items">monday board surface · Owner assignment · Resolution tracking · monday vibe UI</div>
     </div>
     <div class="phase-card">
       <div class="phase-title">Phase 4</div>
-      <div class="phase-weeks">Q1 Wk 10–12</div>
-      <div class="phase-items">Design partner pilot · Iteration · Success metric capture · Expansion readiness</div>
+      <div class="phase-weeks">Q1 Wk 10–13</div>
+      <div class="phase-items">Design partner pilot · Agent iteration · Success capture · Expansion readiness</div>
     </div>
   </div>
 </div>
@@ -254,30 +288,30 @@ h2 { font-size: clamp(22px, 5.5vw, 40px); font-weight: 800; line-height: 1.15; l
 <!-- SLIDE 8: THE ASK -->
 <div class="slide" id="s8">
   <div class="eyebrow eyebrow-red">The Ask</div>
-  <div class="callout" style="font-style:normal;font-size:18px;border-left-width:5px;margin-bottom:20px;padding:18px 20px;">
+  <div class="callout" style="font-style:normal;font-size:17px;border-left-width:5px;margin-bottom:20px;padding:18px 20px;">
     <strong>✋ Approve monday eCommerce.</strong><br/>
-    <span style="font-size:15px;color:rgba(255,255,255,.7);">One product. One bet. One quarter to proof.</span>
+    <span style="font-size:14px;color:rgba(255,255,255,.7);">Approve 1 PM + 3 engineers for 1 quarter to build the first AI-agent-powered vertical on monday's platform — and prove monday can run operations, not just manage them.</span>
   </div>
   <div class="card" style="border-color:rgba(246,43,84,.25);background:rgba(246,43,84,.04);margin-bottom:14px;">
     <div class="label" style="color:var(--red);">What we need</div>
-    <div class="success-item"><div class="success-badge">👥</div><div><strong>1 PM + 3 Engineers</strong> — dedicated for 1 quarter</div></div>
+    <div class="success-item"><div class="success-badge">👥</div><div><strong>1 PM + 3 Engineers</strong> — dedicated for 1 quarter (agent-assisted build)</div></div>
     <div class="success-item"><div class="success-badge">🤝</div><div><strong>3–5 Shopify mid-market design partners</strong> — outreach ready to launch on approval</div></div>
-    <div class="success-item"><div class="success-badge">📅</div><div><strong>Target kickoff within 2 weeks</strong> of approval</div></div>
-    <div class="success-item"><div class="success-badge">✅</div><div><strong>Green light to begin Shopify integration scoping</strong> and design partner contracts</div></div>
+    <div class="success-item"><div class="success-badge">📅</div><div><strong>Kickoff within 2 weeks</strong> of approval</div></div>
+    <div class="success-item"><div class="success-badge">✅</div><div><strong>Green light on Shopify integration scoping</strong> and design partner contracts</div></div>
   </div>
   <div class="card" style="border-color:rgba(155,109,255,.2);margin-bottom:14px;">
-    <div class="label" style="color:var(--purple);">Expansion path after MVP</div>
+    <div class="label" style="color:var(--purple);">Expansion path</div>
     <div class="roadmap">
-      <div class="rm-step"><div class="rm-node now">Pilot → Inventory Risk Detection</div></div>
+      <div class="rm-step"><div class="rm-node now">Pilot → Inventory Risk Agent</div></div>
       <div class="rm-step"><div class="rm-arrow" style="padding-left:6px;">↓</div></div>
-      <div class="rm-step"><div class="rm-node next">Conversion Drop Detection</div></div>
+      <div class="rm-step"><div class="rm-node next">Conversion Drop Agent</div></div>
       <div class="rm-step"><div class="rm-arrow" style="padding-left:6px;">↓</div></div>
-      <div class="rm-step"><div class="rm-node next">Campaign Ops + Ad Intelligence</div></div>
+      <div class="rm-step"><div class="rm-node next">Campaign Ops Agent</div></div>
       <div class="rm-step"><div class="rm-arrow" style="padding-left:6px;">↓</div></div>
       <div class="rm-step"><div class="rm-node next" style="border-color:rgba(155,109,255,.3);color:var(--purple);">monday eCommerce Platform</div></div>
     </div>
   </div>
-  <p style="font-size:13px;color:var(--muted);font-style:italic;line-height:1.6;text-align:center;">"We're not building an eCommerce platform. We're proving one focused AI-first workflow that solves an expensive recurring problem — and plays to monday's strengths."</p>
+  <p style="font-size:13px;color:var(--muted);font-style:italic;line-height:1.6;text-align:center;">"We're not building a dashboard. We're proving that AI agents can run an entire vertical — using monday's own platform to do it."</p>
 </div>
 
 <!-- NAV -->
