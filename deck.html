@@ -3,18 +3,314 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>monday eCommerce MVP</title>
+<title>monday Commerce MVP</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 :root {
-  --red: #F62B54;
-  --blue: #0085FF;
-  --dark: #0D0F1A;
-  --card: #161929;
-  --border: #252A40;
-  --muted: #8B92A5;
-  --green: #00C875;
-  --purple: #9B6DFF;
+  --red: #F62B54; --blue: #0085FF; --dark: #0D0F1A; --card: #161929;
+  --border: #252A40; --muted: #8B92A5; --green: #00C875; --purple: #9B6DFF;
 }
+html { font-size: 16px; }
+body { font-family: 'Inter', system-ui, sans-serif; background: var(--dark); color: #fff; line-height: 1.6; }
+header { position: sticky; top: 0; z-index: 100; background: rgba(13,15,26,0.95); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; }
+.brand { font-size: 14px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.brand em { color: var(--red); font-style: normal; }
+.slide-counter { font-size: 13px; color: var(--muted); font-weight: 600; }
+.progress { height: 3px; background: var(--border); position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, var(--red), var(--blue)); width: 12.5%; transition: width .3s ease; }
+.slide { display: none; min-height: calc(100svh - 53px); flex-direction: column; padding: 28px 20px 60px; }
+.slide.active { display: flex; }
+@media (min-width: 600px) { .slide { padding: 40px 40px 60px; } }
+@media (min-width: 900px) { .slide { padding: 60px 80px 80px; max-width: 960px; margin: 0 auto; width: 100%; } }
+.eyebrow { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 99px; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 18px; width: fit-content; }
+.eyebrow-red   { background: rgba(246,43,84,.12);  color: var(--red);    border: 1px solid rgba(246,43,84,.25); }
+.eyebrow-blue  { background: rgba(0,133,255,.12);   color: var(--blue);   border: 1px solid rgba(0,133,255,.25); }
+.eyebrow-green { background: rgba(0,200,117,.12);   color: var(--green);  border: 1px solid rgba(0,200,117,.25); }
+.eyebrow-purple{ background: rgba(155,109,255,.12); color: var(--purple); border: 1px solid rgba(155,109,255,.25); }
+h1 { font-size: clamp(32px, 9vw, 68px); font-weight: 900; line-height: 1.08; letter-spacing: -.03em; margin-bottom: 14px; }
+h2 { font-size: clamp(22px, 5.5vw, 40px); font-weight: 800; line-height: 1.15; letter-spacing: -.025em; margin-bottom: 6px; }
+.subtitle { font-size: clamp(15px,2.5vw,18px); color: rgba(255,255,255,.55); font-weight: 400; }
+.gradient { background: linear-gradient(135deg, var(--red) 0%, #FF6B8A 45%, var(--blue) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.rule { width: 48px; height: 4px; border-radius: 2px; background: linear-gradient(90deg, var(--red), var(--blue)); margin: 18px 0; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 18px; }
+.scenario { background: linear-gradient(135deg, rgba(246,43,84,.09), rgba(0,133,255,.05)); border: 1px solid rgba(246,43,84,.2); border-radius: 16px; padding: 18px; }
+.scenario-tag { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
+.scenario p { font-size: 15px; color: rgba(255,255,255,.85); line-height: 1.6; }
+.scenario p strong { color: var(--red); }
+.callout { border-left: 3px solid var(--red); background: rgba(246,43,84,.05); border-radius: 0 12px 12px 0; padding: 14px 16px; font-size: 15px; color: rgba(255,255,255,.85); line-height: 1.6; }
+.callout-blue   { border-left-color: var(--blue);   background: rgba(0,133,255,.05); }
+.callout-green  { border-left-color: var(--green);  background: rgba(0,200,117,.05); }
+.callout-purple { border-left-color: var(--purple);  background: rgba(155,109,255,.05); }
+.list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.list li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: rgba(255,255,255,.8); line-height: 1.5; }
+.list li::before { content: ''; flex-shrink: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--red); margin-top: 7px; }
+.list.green li::before { background: var(--green); }
+.label { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 14px; }
+.impact-item { display: flex; align-items: flex-start; gap: 14px; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px; }
+.impact-icon { width: 40px; height: 40px; flex-shrink: 0; border-radius: 10px; background: rgba(246,43,84,.1); display: flex; align-items: center; justify-content: center; font-size: 20px; }
+.impact-text { font-size: 14px; font-weight: 500; color: rgba(255,255,255,.8); line-height: 1.4; }
+.vs-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: rgba(255,255,255,.75); line-height: 1.4; padding: 8px 0; border-bottom: 1px solid var(--border); }
+.vs-item:last-child { border-bottom: none; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { padding: 5px 12px; border-radius: 99px; font-size: 12px; font-weight: 500; background: rgba(255,255,255,.04); border: 1px solid var(--border); color: var(--muted); text-decoration: line-through; text-decoration-color: rgba(255,255,255,.15); }
+.success-item { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: rgba(255,255,255,.8); line-height: 1.5; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.success-item:last-child { border-bottom: none; }
+.success-badge { width: 30px; height: 30px; flex-shrink: 0; border-radius: 50%; background: rgba(0,200,117,.12); border: 1px solid rgba(0,200,117,.25); display: flex; align-items: center; justify-content: center; font-size: 14px; }
+.roadmap { display: flex; flex-direction: column; gap: 10px; }
+.rm-step { display: flex; align-items: center; gap: 10px; }
+.rm-node { padding: 8px 14px; border-radius: 10px; font-size: 13px; font-weight: 600; }
+.rm-node.now { background: linear-gradient(135deg, var(--red), #FF6B8A); color: #fff; }
+.rm-node.next { background: var(--card); border: 1px solid var(--border); color: rgba(255,255,255,.55); font-size: 13px; }
+.rm-arrow { color: var(--muted); font-size: 16px; line-height: 1; }
+.nav-bar { position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 12px; z-index: 100; background: rgba(13,15,26,.9); backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 99px; padding: 8px 16px; }
+.nav-btn { background: none; border: none; color: #fff; font-size: 20px; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .15s; }
+.nav-btn:hover { background: var(--border); }
+.nav-btn:disabled { opacity: .3; cursor: default; }
+.nav-label { font-size: 13px; font-weight: 600; color: var(--muted); min-width: 40px; text-align: center; }
+.dot-bg { position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(rgba(255,255,255,.03) 1px, transparent 1px); background-size: 28px 28px; border-radius: inherit; }
+.gap-sm { height: 12px; } .gap-md { height: 20px; }
+#s1 { position: relative; overflow: hidden; background: radial-gradient(ellipse 110% 70% at 50% 120%, rgba(246,43,84,.14), transparent 65%), radial-gradient(ellipse 80% 60% at 90% -10%, rgba(0,133,255,.10), transparent 65%), var(--dark); justify-content: center; align-items: flex-start; }
+.s1-tagline { display: inline-block; margin-top: 24px; padding: 10px 18px; border: 1px solid var(--border); border-radius: 99px; font-size: 13px; color: var(--muted); font-weight: 500; }
+.phase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media (max-width: 600px) { .phase-grid { grid-template-columns: 1fr; } }
+.phase-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
+.phase-title { font-size: 12px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
+.phase-weeks { font-size: 11px; color: var(--muted); margin-bottom: 8px; }
+.phase-items { font-size: 13px; color: rgba(255,255,255,.75); line-height: 1.6; }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><em>monday</em> Commerce</div>
+  <div class="slide-counter" id="ctr">1 / 8</div>
+</header>
+<div class="progress"><div class="progress-fill" id="pbar"></div></div>
+<!-- SLIDE 1: TITLE -->
+<div class="slide active" id="s1">
+  <div class="dot-bg"></div>
+  <div style="position:relative; width:100%; max-width:720px;">
+    <div class="eyebrow eyebrow-red">Net-New Vertical Product · 2025</div>
+    <h1 class="gradient">monday<br/>Commerce</h1>
+    <p class="subtitle">AI-First Revenue Protection<br/>for Shopify Brands</p>
+    <div class="s1-tagline">A focused MVP to validate real customer value before broader expansion</div>
+  </div>
+</div>
+
+<!-- SLIDE 2: THE PROBLEM -->
+<div class="slide" id="s2">
+  <div class="eyebrow eyebrow-red">The Problem</div>
+  <h2>eCommerce teams lose revenue because critical issues are detected <em>too late</em></h2>
+  <div class="rule"></div>
+  <div class="scenario">
+    <div class="scenario-tag">Real scenario</div>
+    <p>A hero SKU trends to stockout before a peak weekend. Campaigns keep driving traffic. The team notices <strong>Saturday morning</strong>. Result: lost revenue, wasted spend, and a reactive scramble — every single week.</p>
+  </div>
+  <div class="gap-sm"></div>
+  <div class="callout" style="font-style:normal;">
+    Industry data: stockouts cost retailers <strong>~$1T in lost sales annually</strong> (IHL Group). For Shopify mid-market brands, a single peak weekend stockout erases <strong>15–25% of weekly revenue</strong>.
+  </div>
+  <div class="gap-md"></div>
+  <div class="card">
+    <div class="label" style="color:var(--muted)">Why it keeps happening</div>
+    <ul class="list">
+      <li>Shopify storefront performance lives in one system</li>
+      <li>Meta Ads performance lives in another</li>
+      <li>Inventory and fulfillment signals live in a third</li>
+      <li>Teams manually connect the dots under time pressure — costly issues are detected late, acted on slowly</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SLIDE 3: WHY IT MATTERS -->
+<div class="slide" id="s3">
+  <div class="eyebrow eyebrow-red">Why This Matters</div>
+  <h2>This is a <span class="gradient">high-frequency, high-cost</span> problem</h2>
+  <div class="rule"></div>
+  <div style="display:flex;flex-direction:column;gap:12px;">
+    <div class="impact-item"><div class="impact-icon">📦</div><div class="impact-text">Lost sales from stockouts — <strong>avg. 8–15% of monthly GMV</strong> for mid-market brands during peak periods</div></div>
+    <div class="impact-item"><div class="impact-icon">💸</div><div class="impact-text">Wasted ad spend pushing traffic to out-of-stock products — <strong>up to 30% of campaign budget</strong> lost during peak events</div></div>
+    <div class="impact-item"><div class="impact-icon">⏱</div><div class="impact-text">Delayed detection — teams typically notice issues <strong>18–36 hours after they start</strong>, compounding damage</div></div>
+    <div class="impact-item"><div class="impact-icon">🔥</div><div class="impact-text">Reactive coordination that drains focus — <strong>avg. 4+ hours per incident</strong> of manual, cross-team triage</div></div>
+  </div>
+  <div class="gap-md"></div>
+  <div class="callout" style="font-style:normal;font-size:15px;border-left-width:4px;">
+    <strong>Operators don't need another place to look.</strong><br/>They need a system that tells them what matters, why, and who should fix it — before the damage is done.
+  </div>
+</div>
+
+<!-- SLIDE 4: THE GAP -->
+<div class="slide" id="s4">
+  <div class="eyebrow eyebrow-blue">monday Today — The Gap</div>
+  <h2>monday owns the <span class="gradient">work layer</span>.<br/>The intelligence layer is missing.</h2>
+  <div class="rule" style="background:linear-gradient(90deg,var(--blue),var(--purple));"></div>
+  <div class="card" style="margin-bottom:14px;">
+    <div class="label" style="color:var(--muted);">✅ What monday has today</div>
+    <div class="vs-item">🗂 Boards, workflows, and automations — world-class work management</div>
+    <div class="vs-item">🤝 Built-in cross-team collaboration and ownership tracking</div>
+    <div class="vs-item">🔌 Integrations marketplace — 200+ apps, but no native commerce data connectors</div>
+  </div>
+  <div class="card" style="border-color:rgba(246,43,84,.25);background:rgba(246,43,84,.04);margin-bottom:14px;">
+    <div class="label" style="color:var(--red);">❌ What's missing</div>
+    <div class="vs-item">🛒 No Shopify / Magento / WooCommerce integration</div>
+    <div class="vs-item">📦 No inventory signal ingestion or stockout detection</div>
+    <div class="vs-item">📣 No Meta Ads, Google Ads, or TikTok Shop connectors</div>
+    <div class="vs-item">🤖 No AI layer to detect and prioritize revenue risk</div>
+    <div class="vs-item">📊 No commerce-specific workflows or KPI dashboards</div>
+  </div>
+  <div class="callout callout-blue" style="font-style:normal;">
+    <strong>Competitors stop at analytics.</strong> Triple Whale, Northbeam, Gorgias show data — but nobody operationalizes it into accountable action. That's monday's opening.
+  </div>
+</div>
+<!-- SLIDE 5: WHY NOW -->
+<div class="slide" id="s5">
+  <div class="eyebrow eyebrow-purple">Why Now</div>
+  <h2>The window to own <span class="gradient">AI-native commerce ops</span> is open — right now.</h2>
+  <div class="rule" style="background:linear-gradient(90deg,var(--purple),var(--blue));"></div>
+  <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:20px;">
+    <div class="impact-item"><div class="impact-icon" style="background:rgba(155,109,255,.1);">🤖</div><div class="impact-text"><strong>AI-native tooling is mature.</strong> LLMs, embeddings, and anomaly detection are production-ready. What required a data science team in 2022 is a 3-engineer sprint in 2025.</div></div>
+    <div class="impact-item"><div class="impact-icon" style="background:rgba(0,133,255,.1);">🛒</div><div class="impact-text"><strong>Shopify ecosystem is at scale.</strong> 2M+ active merchants, $235B+ GMV annually. The mid-market segment (monday's ICP) is underserved by AI tooling.</div></div>
+    <div class="impact-item"><div class="impact-icon" style="background:rgba(0,200,117,.1);">🚀</div><div class="impact-text"><strong>monday's vertical expansion moment.</strong> Platform maturity + brand trust = right time to own a vertical. First-mover advantage before Salesforce, HubSpot, or a funded startup claims it.</div></div>
+    <div class="impact-item"><div class="impact-icon" style="background:rgba(246,43,84,.1);">⚔️</div><div class="impact-text"><strong>Competitive urgency.</strong> Other initiatives are competing for this space. Waiting = ceding the category. A 90-day pilot is low-risk validation with high strategic signal.</div></div>
+  </div>
+  <div class="callout callout-purple" style="font-style:normal;">
+    <strong>This is not a feature request.</strong> It's a category bet — and the timing to make it is now.
+  </div>
+</div>
+
+<!-- SLIDE 6: MVP SCOPE -->
+<div class="slide" id="s6">
+  <div class="eyebrow eyebrow-green">MVP Scope</div>
+  <h2>One hero workflow:<br/><span style="color:var(--green)">Inventory-Driven Revenue Risk</span></h2>
+  <div class="rule" style="background:linear-gradient(90deg,var(--green),var(--blue));"></div>
+  <div class="card" style="border-color:rgba(0,200,117,.2);background:rgba(0,200,117,.03);margin-bottom:14px;">
+    <div class="label" style="color:var(--green);">✅ In Scope</div>
+    <ul class="list green">
+      <li>Shopify OAuth integration — connect store data securely</li>
+      <li>Detect high-value SKUs trending toward stockout</li>
+      <li>Estimate revenue at risk per SKU in real time</li>
+      <li>Show likely cause and context (ad spend, velocity, seasonality)</li>
+      <li>Recommend next action (pause campaign, reorder, reroute)</li>
+      <li>Assign owner and track resolution in monday boards</li>
+      <li>Prioritized daily issue queue — operators see what matters most</li>
+    </ul>
+  </div>
+  <div class="card" style="border-color:rgba(246,43,84,.15);background:rgba(246,43,84,.03);margin-bottom:14px;">
+    <div class="label" style="color:var(--muted);">🚫 Out of Scope (MVP)</div>
+    <div class="chips">
+      <span class="chip">Autonomous execution</span>
+      <span class="chip">Broad workflow builder</span>
+      <span class="chip">Multi-platform integrations</span>
+      <span class="chip">Full eCommerce suite</span>
+      <span class="chip">Returns / reviews</span>
+    </div>
+  </div>
+  <div class="callout" style="font-style:normal;">
+    <strong>One bet.</strong> Win one expensive recurring problem before expanding. Prove the value loop before building the platform.
+  </div>
+</div>
+
+<!-- SLIDE 7: TECHNICAL APPROACH + ROADMAP -->
+<div class="slide" id="s7">
+  <div class="eyebrow eyebrow-blue">Technical Approach</div>
+  <h2>Simple architecture.<br/><span class="gradient">Fast to ship.</span></h2>
+  <div class="rule" style="background:linear-gradient(90deg,var(--blue),var(--green));"></div>
+  <div class="card" style="margin-bottom:16px;">
+    <div class="label" style="color:var(--blue);">Architecture — 4 layers</div>
+    <div class="vs-item">🔐 <strong>Shopify OAuth App</strong> — secure store connection, webhook subscriptions for inventory + order events</div>
+    <div class="vs-item">⚙️ <strong>Ingestion + Normalization</strong> — real-time pipeline, unify SKU data with ad spend signals</div>
+    <div class="vs-item">🤖 <strong>AI Detection Engine</strong> — anomaly detection + revenue-at-risk scoring, ranked issue queue</div>
+    <div class="vs-item">📋 <strong>monday Surface</strong> — issues appear as board items, owner assigned, resolution tracked</div>
+  </div>
+  <div class="gap-sm"></div>
+  <div class="label" style="color:var(--muted);">12-Week Implementation Roadmap — 1 PM + 3 Engineers</div>
+  <div class="phase-grid">
+    <div class="phase-card">
+      <div class="phase-title">Phase 1</div>
+      <div class="phase-weeks">Weeks 1–3</div>
+      <div class="phase-items">Shopify OAuth app · Webhook setup · Data ingestion pipeline · Schema design</div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-title">Phase 2</div>
+      <div class="phase-weeks">Weeks 4–6</div>
+      <div class="phase-items">AI detection engine · Risk scoring model · Revenue-at-risk estimation · Alert logic</div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-title">Phase 3</div>
+      <div class="phase-weeks">Weeks 7–9</div>
+      <div class="phase-items">monday board integration · Owner assignment · Resolution tracking · Daily queue UI</div>
+    </div>
+    <div class="phase-card">
+      <div class="phase-title">Phase 4</div>
+      <div class="phase-weeks">Weeks 10–12</div>
+      <div class="phase-items">Design partner pilot · Iteration · Success metric capture · Expansion readiness</div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 8: THE ASK -->
+<div class="slide" id="s8">
+  <div class="eyebrow eyebrow-red">The Ask</div>
+  <div class="callout" style="font-style:normal;font-size:18px;border-left-width:5px;margin-bottom:20px;padding:18px 20px;">
+    <strong>✋ Approve the monday Commerce MVP.</strong><br/>
+    <span style="font-size:15px;color:rgba(255,255,255,.7);">One product. One bet. 90 days to proof.</span>
+  </div>
+  <div class="card" style="border-color:rgba(246,43,84,.25);background:rgba(246,43,84,.04);margin-bottom:14px;">
+    <div class="label" style="color:var(--red);">What we need</div>
+    <div class="success-item"><div class="success-badge">👥</div><div><strong>1 PM + 3 Engineers</strong> — dedicated to this for 90 days</div></div>
+    <div class="success-item"><div class="success-badge">🤝</div><div><strong>3–5 Shopify mid-market design partners</strong> — outreach ready to launch on approval</div></div>
+    <div class="success-item"><div class="success-badge">📅</div><div><strong>Target kickoff within 2 weeks</strong> of approval</div></div>
+    <div class="success-item"><div class="success-badge">✅</div><div><strong>Green light to begin Shopify integration scoping</strong> and design partner contracts</div></div>
+  </div>
+  <div class="card" style="border-color:rgba(155,109,255,.2);margin-bottom:14px;">
+    <div class="label" style="color:var(--purple);">Expansion path after MVP</div>
+    <div class="roadmap">
+      <div class="rm-step"><div class="rm-node now">MVP → Inventory Risk Detection</div></div>
+      <div class="rm-step"><div class="rm-arrow" style="padding-left:6px;">↓</div></div>
+      <div class="rm-step"><div class="rm-node next">Conversion Drop Detection</div></div>
+      <div class="rm-step"><div class="rm-arrow" style="padding-left:6px;">↓</div></div>
+      <div class="rm-step"><div class="rm-node next">Campaign Ops + Ad Intelligence</div></div>
+      <div class="rm-step"><div class="rm-arrow" style="padding-left:6px;">↓</div></div>
+      <div class="rm-step"><div class="rm-node next" style="border-color:rgba(155,109,255,.3);color:var(--purple);">monday Commerce Platform</div></div>
+    </div>
+  </div>
+  <p style="font-size:13px;color:var(--muted);font-style:italic;line-height:1.6;text-align:center;">"We're not building an eCommerce platform. We're proving one focused AI-first workflow that solves an expensive recurring problem — and plays to monday's strengths."</p>
+</div>
+
+<!-- NAV -->
+<nav class="nav-bar">
+  <button class="nav-btn" id="prevBtn" onclick="navigate(-1)" disabled>&#8249;</button>
+  <span class="nav-label" id="navLabel">1 / 8</span>
+  <button class="nav-btn" id="nextBtn" onclick="navigate(1)">&#8250;</button>
+</nav>
+
+<script>
+const slides = Array.from(document.querySelectorAll('.slide'));
+const total = slides.length;
+let cur = 0;
+function show(n) {
+  slides[cur].classList.remove('active');
+  cur = Math.max(0, Math.min(total - 1, n));
+  slides[cur].classList.add('active');
+  document.getElementById('ctr').textContent = (cur+1) + ' / ' + total;
+  document.getElementById('navLabel').textContent = (cur+1) + ' / ' + total;
+  document.getElementById('pbar').style.width = ((cur+1)/total*100) + '%';
+  document.getElementById('prevBtn').disabled = cur === 0;
+  document.getElementById('nextBtn').disabled = cur === total - 1;
+  window.scrollTo(0, 0);
+}
+function navigate(dir) { show(cur + dir); }
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') navigate(1);
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')  navigate(-1);
+});
+let tx = 0;
+document.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+document.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - tx;
+  if (Math.abs(dx) > 50) navigate(dx < 0 ? 1 : -1);
+}, { passive: true });
+show(0);
+</script>
+</body>
+</html>
