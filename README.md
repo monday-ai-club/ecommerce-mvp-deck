@@ -24,7 +24,7 @@ monday already owns the work layer. We're adding the intelligence layer. Analyti
 - Issues surfaced early enough to matter
 -- Operators act on them weekly
 - Time to ownership measurably improves
-- At least one prevented revenue-loss event captured
+- AT least one prevented revenue-loss event captured
 
 ## View the Deck
 
@@ -33,3 +33,4 @@ Open `deck.html` in your browser or visit the [GitHub Pages](https://monday-ai-c
 ---
 
 *Built by the monday AI Club 🤕**
+*Written by AI 🤥*
