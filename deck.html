@@ -18,208 +18,259 @@ header { position: sticky; top: 0; z-index: 100; background: rgba(13,15,26,0.95)
 .brand em { color: var(--red); font-style: normal; }
 .slide-counter { font-size: 13px; color: var(--muted); font-weight: 600; }
 .progress { height: 3px; background: var(--border); position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; }
-.progress-fill { height: 100%; background: linear-gradient(90deg, var(--red), var(--blue)); width: 12.5%; transition: width .3s ease; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, var(--red), var(--blue)); transition: width .3s ease; }
 .slide { display: none; min-height: calc(100svh - 53px); flex-direction: column; padding: 28px 20px 60px; }
 .slide.active { display: flex; }
 @media (min-width: 600px) { .slide { padding: 40px 40px 60px; } }
 @media (min-width: 900px) { .slide { padding: 60px 80px 80px; max-width: 960px; margin: 0 auto; width: 100%; } }
 .eyebrow { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 99px; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 18px; width: fit-content; }
-.eyebrow-red   { background: rgba(246,43,84,.12);  color: var(--red);    border: 1px solid rgba(246,43,84,.25); }
-.eyebrow-blue  { background: rgba(0,133,255,.12);   color: var(--blue);   border: 1px solid rgba(0,133,255,.25); }
-.eyebrow-green { background: rgba(0,200,117,.12);   color: var(--green);  border: 1px solid rgba(0,200,117,.25); }
-.eyebrow-purple{ background: rgba(155,109,255,.12); color: var(--purple); border: 1px solid rgba(155,109,255,.25); }
-h1 { font-size: clamp(32px, 9vw, 68px); font-weight: 900; line-height: 1.08; letter-spacing: -.03em; margin-bottom: 14px; }
-h2 { font-size: clamp(22px, 5.5vw, 40px); font-weight: 800; line-height: 1.15; letter-spacing: -.025em; margin-bottom: 6px; }
+.eyebrow-red    { background: rgba(246,43,84,.12);  color: var(--red);    border: 1px solid rgba(246,43,84,.25); }
+.eyebrow-blue   { background: rgba(0,133,255,.12);   color: var(--blue);   border: 1px solid rgba(0,133,255,.25); }
+.eyebrow-green  { background: rgba(0,200,117,.12);   color: var(--green);  border: 1px solid rgba(0,200,117,.25); }
+.eyebrow-purple { background: rgba(155,109,255,.12); color: var(--purple); border: 1px solid rgba(155,109,255,.25); }
+h1 { font-size: clamp(32px,9vw,68px); font-weight: 900; line-height: 1.08; letter-spacing: -.03em; margin-bottom: 14px; }
+h2 { font-size: clamp(22px,5.5vw,40px); font-weight: 800; line-height: 1.15; letter-spacing: -.025em; margin-bottom: 6px; }
 .subtitle { font-size: clamp(15px,2.5vw,18px); color: rgba(255,255,255,.55); font-weight: 400; }
 .gradient { background: linear-gradient(135deg, var(--red) 0%, #FF6B8A 45%, var(--blue) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.rule { width: 48px; height: 4px; border-radius: 2px; background: linear-gradient(90deg, var(--red), var(--blue)); margin: 18px 0; }
-.card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 18px; }
-.scenario { background: linear-gradient(135deg, rgba(246,43,84,.09), rgba(0,133,255,.05)); border: 1px solid rgba(246,43,84,.2); border-radius: 16px; padding: 18px; }
-.scenario-tag { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
-.scenario p { font-size: 15px; color: rgba(255,255,255,.85); line-height: 1.6; }
-.scenario p strong { color: var(--red); }
+.rule { width: 48px; height: 4px; border-radius: 2px; background: linear-gradient(90deg,var(--red),var(--blue)); margin: 18px 0; }
+.card  { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 18px; }
 .callout { border-left: 3px solid var(--red); background: rgba(246,43,84,.05); border-radius: 0 12px 12px 0; padding: 14px 16px; font-size: 15px; color: rgba(255,255,255,.85); line-height: 1.6; }
 .callout-blue   { border-left-color: var(--blue);   background: rgba(0,133,255,.05); }
 .callout-green  { border-left-color: var(--green);  background: rgba(0,200,117,.05); }
-.callout-purple { border-left-color: var(--purple);  background: rgba(155,109,255,.05); }
-.list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-.list li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: rgba(255,255,255,.8); line-height: 1.5; }
-.list li::before { content: ''; flex-shrink: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--red); margin-top: 7px; }
-.list.green li::before { background: var(--green); }
+.callout-purple { border-left-color: var(--purple); background: rgba(155,109,255,.05); }
 .label { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 14px; }
-.impact-item { display: flex; align-items: flex-start; gap: 14px; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px; }
-.impact-icon { width: 40px; height: 40px; flex-shrink: 0; border-radius: 10px; background: rgba(246,43,84,.1); display: flex; align-items: center; justify-content: center; font-size: 20px; }
+.impact-item { display: flex; align-items: flex-start; gap: 14px; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 14px; }
+.impact-icon { width: 40px; height: 40px; flex-shrink: 0; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
 .impact-text { font-size: 14px; font-weight: 500; color: rgba(255,255,255,.8); line-height: 1.4; }
+.source-link { font-size: 11px; color: var(--muted); font-weight: 400; }
+.source-link a { color: var(--blue); text-decoration: none; }
+.source-link a:hover { text-decoration: underline; }
 .vs-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: rgba(255,255,255,.75); line-height: 1.4; padding: 8px 0; border-bottom: 1px solid var(--border); }
 .vs-item:last-child { border-bottom: none; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip { padding: 5px 12px; border-radius: 99px; font-size: 12px; font-weight: 500; background: rgba(255,255,255,.04); border: 1px solid var(--border); color: var(--muted); text-decoration: line-through; text-decoration-color: rgba(255,255,255,.15); }
+.chip { padding: 5px 12px; border-radius: 99px; font-size: 12px; font-weight: 500; background: rgba(255,255,255,.04); border: 1px solid var(--border); color: var(--muted); text-decoration: line-through; }
 .success-item { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: rgba(255,255,255,.8); line-height: 1.5; padding: 10px 0; border-bottom: 1px solid var(--border); }
 .success-item:last-child { border-bottom: none; }
 .success-badge { width: 30px; height: 30px; flex-shrink: 0; border-radius: 50%; background: rgba(0,200,117,.12); border: 1px solid rgba(0,200,117,.25); display: flex; align-items: center; justify-content: center; font-size: 14px; }
-.roadmap { display: flex; flex-direction: column; gap: 10px; }
-.rm-step { display: flex; align-items: center; gap: 10px; }
-.rm-node { padding: 8px 14px; border-radius: 10px; font-size: 13px; font-weight: 600; }
-.rm-node.now { background: linear-gradient(135deg, var(--red), #FF6B8A); color: #fff; }
-.rm-node.next { background: var(--card); border: 1px solid var(--border); color: rgba(255,255,255,.55); font-size: 13px; }
-.rm-arrow { color: var(--muted); font-size: 16px; line-height: 1; }
+.gap-sm { height: 12px; } .gap-md { height: 20px; }
+#s1 { position: relative; overflow: hidden; background: radial-gradient(ellipse 110% 70% at 50% 120%, rgba(246,43,84,.14), transparent 65%), radial-gradient(ellipse 80% 60% at 90% -10%, rgba(0,133,255,.10), transparent 65%), var(--dark); justify-content: center; align-items: flex-start; }
+.s1-tagline { display: inline-block; margin-top: 24px; padding: 10px 18px; border: 1px solid var(--border); border-radius: 99px; font-size: 13px; color: var(--muted); font-weight: 500; }
+.dot-bg { position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(rgba(255,255,255,.03) 1px, transparent 1px); background-size: 28px 28px; }
+.comp-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+@media (max-width: 700px) { .comp-grid { grid-template-columns: 1fr; } }
+.comp-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px; }
+.comp-card.monday { border-color: rgba(0,200,117,.3); background: rgba(0,200,117,.04); }
+.comp-name { font-size: 14px; font-weight: 700; color: rgba(255,255,255,.9); margin-bottom: 2px; }
+.comp-tag { font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+.comp-row { font-size: 12px; line-height: 1.5; margin-bottom: 3px; }
+.phase-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
+.phase-title { font-size: 12px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 4px; }
+.phase-weeks { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+.phase-milestone { display: inline-block; padding: 2px 10px; border-radius: 99px; font-size: 11px; font-weight: 600; background: rgba(246,43,84,.12); color: var(--red); border: 1px solid rgba(246,43,84,.2); margin-bottom: 6px; }
+.phase-items { font-size: 13px; color: rgba(255,255,255,.7); line-height: 1.6; }
+.agent-flow { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 14px 0; }
+.agent-step { background: rgba(0,133,255,.08); border: 1px solid rgba(0,133,255,.2); border-radius: 10px; padding: 8px 12px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,.85); }
+.agent-arrow { color: var(--muted); font-size: 16px; }
+.metric-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px; }
+.metric-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
+.metric-value { font-size: 24px; font-weight: 900; color: var(--green); margin-bottom: 4px; letter-spacing: -.02em; }
+.metric-desc { font-size: 12px; color: rgba(255,255,255,.6); line-height: 1.4; }
+.metric-baseline { font-size: 11px; color: var(--muted); margin-top: 4px; }
 .nav-bar { position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 12px; z-index: 100; background: rgba(13,15,26,.9); backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 99px; padding: 8px 16px; }
 .nav-btn { background: none; border: none; color: #fff; font-size: 20px; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .15s; }
 .nav-btn:hover { background: var(--border); }
 .nav-btn:disabled { opacity: .3; cursor: default; }
-.nav-label { font-size: 13px; font-weight: 600; color: var(--muted); min-width: 40px; text-align: center; }
-.dot-bg { position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(rgba(255,255,255,.03) 1px, transparent 1px); background-size: 28px 28px; border-radius: inherit; }
-.gap-sm { height: 12px; } .gap-md { height: 20px; }
-#s1 { position: relative; overflow: hidden; background: radial-gradient(ellipse 110% 70% at 50% 120%, rgba(246,43,84,.14), transparent 65%), radial-gradient(ellipse 80% 60% at 90% -10%, rgba(0,133,255,.10), transparent 65%), var(--dark); justify-content: center; align-items: flex-start; }
-.s1-tagline { display: inline-block; margin-top: 24px; padding: 10px 18px; border: 1px solid var(--border); border-radius: 99px; font-size: 13px; color: var(--muted); font-weight: 500; }
-.comp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-@media (max-width: 700px) { .comp-grid { grid-template-columns: 1fr; } }
-.comp-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px; }
-.comp-name { font-size: 13px; font-weight: 700; color: rgba(255,255,255,.9); margin-bottom: 4px; }
-.comp-tag { font-size: 11px; color: var(--muted); margin-bottom: 10px; }
-.comp-can { font-size: 12px; color: rgba(0,200,117,.9); margin-bottom: 4px; }
-.comp-cant { font-size: 12px; color: rgba(246,43,84,.9); }
-.phase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-@media (max-width: 600px) { .phase-grid { grid-template-columns: 1fr; } }
-.phase-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
-.phase-title { font-size: 12px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
-.phase-weeks { font-size: 11px; color: var(--muted); margin-bottom: 8px; }
-.phase-items { font-size: 13px; color: rgba(255,255,255,.75); line-height: 1.6; }
-.agent-flow { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 14px 0; }
-.agent-step { background: rgba(0,133,255,.08); border: 1px solid rgba(0,133,255,.2); border-radius: 10px; padding: 8px 14px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,.85); }
-.agent-arrow { color: var(--muted); font-size: 18px; }
+.nav-label { font-size: 13px; font-weight: 600; color: var(--muted); min-width: 48px; text-align: center; }
+.timeline { display: flex; flex-direction: column; gap: 0; position: relative; padding-left: 28px; }
+.timeline::before { content: ''; position: absolute; left: 8px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(to bottom, var(--red), var(--blue), var(--green)); border-radius: 2px; }
+.tl-item { position: relative; padding: 0 0 20px 16px; }
+.tl-dot { position: absolute; left: -20px; top: 4px; width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--red); background: var(--dark); }
+.tl-week { font-size: 11px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+.tl-title { font-size: 15px; font-weight: 700; color: #fff; margin: 2px 0; }
+.tl-desc { font-size: 13px; color: rgba(255,255,255,.65); line-height: 1.5; }
+.tl-flag { display: inline-block; padding: 2px 10px; border-radius: 99px; font-size: 11px; font-weight: 700; margin-top: 4px; }
+.flag-red    { background: rgba(246,43,84,.15);  color: var(--red);    border: 1px solid rgba(246,43,84,.3); }
+.flag-green  { background: rgba(0,200,117,.15);  color: var(--green);  border: 1px solid rgba(0,200,117,.3); }
+.flag-blue   { background: rgba(0,133,255,.15);  color: var(--blue);   border: 1px solid rgba(0,133,255,.3); }
+.flag-purple { background: rgba(155,109,255,.15);color: var(--purple); border: 1px solid rgba(155,109,255,.3); }
 </style>
 </head>
 <body>
 <header>
   <div class="brand"><em>monday</em> eCommerce</div>
-  <div class="slide-counter" id="ctr">1 / 8</div>
+  <div class="slide-counter" id="ctr">1 / 10</div>
 </header>
-<div class="progress"><div class="progress-fill" id="pbar"></div></div>
-<!-- SLIDE 1: TITLE -->
+<div class="progress"><div class="progress-fill" id="pbar" style="width:10%;"></div></div>
+
+<!-- ===== SLIDE 1: TITLE ===== -->
 <div class="slide active" id="s1">
   <div class="dot-bg"></div>
-  <div style="position:relative; width:100%; max-width:720px;">
+  <div style="position:relative;max-width:720px;">
     <div class="eyebrow eyebrow-red">monday eCommerce · Product Proposal</div>
     <h1 class="gradient">monday<br/>eCommerce</h1>
-    <p class="subtitle">AI Agents that run your eCommerce operations —<br/>built on monday, delivered by monday</p>
+    <p class="subtitle">AI agents that run your eCommerce operations —<br/>built on monday, delivered by monday</p>
     <div class="s1-tagline">The first vertical product built by AI agents, operated by AI agents, on monday's own platform</div>
   </div>
 </div>
 
-<!-- SLIDE 2: THE PROBLEM + WHY IT MATTERS (merged) -->
+<!-- ===== SLIDE 2: THE PROBLEM ===== -->
 <div class="slide" id="s2">
   <div class="eyebrow eyebrow-red">The Problem</div>
   <h2>eCommerce teams lose revenue because critical issues are detected <em>too late</em></h2>
   <div class="rule"></div>
-  <div class="scenario">
-    <div class="scenario-tag">Every week, somewhere</div>
-    <p>A hero SKU trends to stockout before a peak weekend. Campaigns keep driving traffic. The team notices <strong>Saturday morning</strong>. Lost revenue. Wasted spend. Reactive scramble.</p>
+  <div style="background:linear-gradient(135deg,rgba(246,43,84,.09),rgba(0,133,255,.05));border:1px solid rgba(246,43,84,.2);border-radius:16px;padding:18px;margin-bottom:16px;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:8px;">Every week, somewhere</div>
+    <p style="font-size:15px;color:rgba(255,255,255,.85);line-height:1.6;">A hero SKU trends to stockout before a peak weekend. Campaigns keep driving traffic. The team notices <strong style="color:var(--red);">Saturday morning</strong>. Lost revenue. Wasted spend. Reactive scramble.</p>
   </div>
-  <div class="gap-sm"></div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-    <div class="impact-item"><div class="impact-icon">📦</div><div class="impact-text"><strong>8–15% of GMV</strong> lost to stockouts each month</div></div>
-    <div class="impact-item"><div class="impact-icon">💸</div><div class="impact-text"><strong>30% of ad budget</strong> wasted driving traffic to unavailable SKUs</div></div>
-    <div class="impact-item"><div class="impact-icon">⏱</div><div class="impact-text"><strong>18–36 hrs</strong> before teams detect a live issue</div></div>
-    <div class="impact-item"><div class="impact-icon">🔥</div><div class="impact-text"><strong>4+ hrs per incident</strong> of manual, cross-team triage</div></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
+    <div class="impact-item">
+      <div class="impact-icon" style="background:rgba(246,43,84,.1);">📦</div>
+      <div class="impact-text">
+        <strong>$1.73T lost annually</strong> to inventory distortion (stockouts + overstocks) globally
+        <div class="source-link">Source: <a href="https://chainstoreage.com/ihl-group-inventory-issues-cause-17t-annual-losses" target="_blank">IHL Group, 2025</a></div>
+      </div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-icon" style="background:rgba(0,133,255,.1);">💸</div>
+      <div class="impact-text">
+        <strong>5–12% of ad budgets</strong> wasted driving traffic to out-of-stock products
+        <div class="source-link">Source: <a href="https://thedrum.com/news/2025/06/09/out-stock-out-pocket-retail-ads-have-efficiency-problem-what-s-the-fix" target="_blank">ShoppingIQ / The Drum, 2025</a></div>
+      </div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-icon" style="background:rgba(155,109,255,.1);">⏱</div>
+      <div class="impact-text">
+        <strong>51% of SKUs</strong> experience at least one stockout period annually across major eCommerce platforms
+        <div class="source-link">Source: <a href="https://www.opensend.com/post/inventory-stock-out-rate-statistics" target="_blank">Opensend Analysis, 2025</a></div>
+      </div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-icon" style="background:rgba(0,200,117,.1);">🔥</div>
+      <div class="impact-text">
+        <strong>4+ hrs per incident</strong> of manual cross-team triage — ops, marketing, logistics all pulling in different directions
+      </div>
+    </div>
   </div>
-  <div class="gap-sm"></div>
   <div class="callout" style="font-style:normal;">
-    Industry data: stockouts cost retailers <strong>~$1T annually</strong> (IHL Group). The data to prevent this already exists — it's just sitting in silos, unwatched.
+    The data to prevent this already exists. It's sitting in Shopify, in ad platforms, in spreadsheets — <strong>unwatched and unconnected.</strong>
   </div>
 </div>
 
-<!-- SLIDE 3: THE FOUNDATION -->
+<!-- ===== SLIDE 3: THE FOUNDATION ===== -->
 <div class="slide" id="s3">
   <div class="eyebrow eyebrow-blue">monday Today — The Foundation</div>
   <h2>The plumbing already exists.<br/><span class="gradient">The brain doesn't.</span></h2>
   <div class="rule" style="background:linear-gradient(90deg,var(--blue),var(--purple));"></div>
   <div class="card" style="margin-bottom:14px;">
-    <div class="label" style="color:var(--green);">✅ monday's existing Lego blocks</div>
-    <div class="vs-item">📋 <strong>monday Boards</strong> — structured data store for orders, SKUs, inventory, issues</div>
-    <div class="vs-item">📊 <strong>monday Dashboards</strong> — real-time analytics layer already used by ops teams</div>
-    <div class="vs-item">⚡ <strong>monday Automations</strong> — trigger-based workflows (inventory drop → item + owner)</div>
-    <div class="vs-item">🏗️ <strong>monday vibe</strong> — AI no-code app builder: prompt → custom commerce UI</div>
-    <div class="vs-item">🤖 <strong>monday AI Agents</strong> — autonomous agents that act inside the platform (2025)</div>
-    <div class="vs-item">🛒 <strong>Shopify connector (live)</strong> — syncs orders, inventory, customers. Available in monday's App Marketplace <em>and</em> the Shopify App Store</div>
+    <div class="label" style="color:var(--green);">✅ monday's existing platform — ready to build on</div>
+    <div class="vs-item">📋 <strong>monday Boards</strong> — structured data for orders, SKUs, inventory, issues, ownership</div>
+    <div class="vs-item">📊 <strong>monday Dashboards</strong> — real-time analytics layer, already used by ops teams</div>
+    <div class="vs-item">⚡ <strong>monday Automations</strong> — trigger-based workflows: inventory drop → board item + owner assignment</div>
+    <div class="vs-item">🏗️ <strong>monday vibe</strong> — AI no-code app builder: prompt → custom commerce UI, no engineers required</div>
+    <div class="vs-item">🤖 <strong>monday AI Agents</strong> — autonomous agents that act inside the platform: detect, prioritize, assign, follow up</div>
+    <div class="vs-item">🔌 <strong>Commerce connector (live)</strong> — Shopify connector in production. Framework supports any storefront (WooCommerce, BigCommerce, custom)</div>
   </div>
   <div class="card" style="border-color:rgba(246,43,84,.25);background:rgba(246,43,84,.04);margin-bottom:14px;">
-    <div class="label" style="color:var(--red);">❌ What the current integration can't do</div>
-    <div class="vs-item">📦 Data syncs in — but nothing watches it or acts on it</div>
-    <div class="vs-item">🚨 No stockout risk scoring or revenue-at-risk estimation</div>
-    <div class="vs-item">📣 No ad spend signal correlation</div>
-    <div class="vs-item">🎯 No prioritized issue queue or automatic owner assignment</div>
+    <div class="label" style="color:var(--red);">❌ What the current setup can't do</div>
+    <div class="vs-item">📦 Data syncs in — but nothing watches it, scores it, or acts on it</div>
+    <div class="vs-item">🚨 No risk detection, no revenue-at-risk estimation, no proactive alerts</div>
+    <div class="vs-item">👤 No automatic owner assignment or resolution tracking</div>
   </div>
   <div class="callout callout-blue" style="font-style:normal;">
-    <strong>The Shopify connector moves data. monday eCommerce adds the agent layer that turns data into autonomous action.</strong>
+    <strong>monday eCommerce is not a new integration. It's the agent layer that turns existing data into autonomous action.</strong>
   </div>
 </div>
 
-<!-- SLIDE 4: COMPETITIVE LANDSCAPE -->
+<!-- ===== SLIDE 4: COMPETITIVE ANALYSIS ===== -->
 <div class="slide" id="s4">
-  <div class="eyebrow eyebrow-red">Competitive Landscape</div>
+  <div class="eyebrow eyebrow-red">Competitive Analysis</div>
   <h2>Everyone shows data.<br/><span class="gradient">Nobody operationalizes it.</span></h2>
   <div class="rule"></div>
-  <div class="comp-grid" style="margin-bottom:16px;">
+  <div class="comp-grid" style="margin-bottom:14px;">
     <div class="comp-card">
       <div class="comp-name">Triple Whale</div>
-      <div class="comp-tag">eComm analytics</div>
-      <div class="comp-can">✅ Attribution, ROAS, LTV analytics</div>
-      <div class="comp-cant">❌ No risk detection<br/>❌ No owner assignment<br/>❌ No resolution tracking</div>
+      <div class="comp-tag">eComm analytics · funded $25M+</div>
+      <div class="comp-row">✅ Attribution, ROAS, LTV dashboards</div>
+      <div class="comp-row">✅ Shopify-native, strong DTC brand fit</div>
+      <div class="comp-row" style="color:var(--red);">❌ No risk detection or scoring</div>
+      <div class="comp-row" style="color:var(--red);">❌ No owner assignment or workflow</div>
+      <div class="comp-row" style="color:var(--red);">❌ Insight only — no action layer</div>
     </div>
     <div class="comp-card">
       <div class="comp-name">Northbeam</div>
-      <div class="comp-tag">Marketing analytics</div>
-      <div class="comp-can">✅ Cross-channel attribution</div>
-      <div class="comp-cant">❌ No inventory signals<br/>❌ No actionable workflows<br/>❌ No AI agents</div>
+      <div class="comp-tag">Marketing analytics · funded $30M+</div>
+      <div class="comp-row">✅ Cross-channel attribution modeling</div>
+      <div class="comp-row">✅ Ad spend optimization</div>
+      <div class="comp-row" style="color:var(--red);">❌ No inventory or ops signals</div>
+      <div class="comp-row" style="color:var(--red);">❌ No actionable workflows</div>
+      <div class="comp-row" style="color:var(--red);">❌ No AI agent layer</div>
     </div>
     <div class="comp-card">
-      <div class="comp-name">Gorgias</div>
-      <div class="comp-tag">eComm support</div>
-      <div class="comp-can">✅ Customer support workflows</div>
-      <div class="comp-cant">❌ Reactive only (post-issue)<br/>❌ No proactive risk layer<br/>❌ Not ops-focused</div>
+      <div class="comp-name">Salesforce Commerce Cloud</div>
+      <div class="comp-tag">Enterprise commerce platform</div>
+      <div class="comp-row">✅ Full eComm suite, enterprise reach</div>
+      <div class="comp-row">✅ Moving into AI ops (Agentforce)</div>
+      <div class="comp-row" style="color:var(--red);">❌ Months-long implementation</div>
+      <div class="comp-row" style="color:var(--red);">❌ Priced out of mid-market</div>
+      <div class="comp-row" style="color:var(--red);">❌ Not monday's existing customers</div>
     </div>
   </div>
-  <div class="card" style="border-color:rgba(0,200,117,.2);background:rgba(0,200,117,.03);">
-    <div class="label" style="color:var(--green);">✅ monday eCommerce — the missing layer</div>
-    <div class="vs-item">🤖 AI agents that detect risk <em>before</em> it becomes damage</div>
-    <div class="vs-item">📋 Issues surface directly in monday boards with context + recommended action</div>
-    <div class="vs-item">👤 Automatic owner assignment + resolution tracking built in</div>
-    <div class="vs-item">🔁 Built on monday's own platform — not another siloed tool</div>
+  <div class="comp-card monday" style="margin-bottom:12px;">
+    <div class="comp-name" style="color:var(--green);font-size:15px;margin-bottom:4px;">✅ monday eCommerce — the missing layer</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;font-size:13px;color:rgba(255,255,255,.8);">
+      <div>🤖 AI agents detect risk <em>before</em> it becomes damage</div>
+      <div>📋 Issues surface in monday boards with context + action</div>
+      <div>👤 Automatic owner assignment + resolution tracking</div>
+      <div>🔄 Closes the loop: detect → assign → resolve → measure</div>
+      <div>🏗️ Built on platform you already sell — no new tooling</div>
+      <div>🎯 Targets monday's existing customers — no cold outreach</div>
+    </div>
   </div>
-  <div class="gap-sm"></div>
   <div class="callout callout-blue" style="font-style:normal;">
-    <strong>Analytics tools stop at insight. Salesforce Commerce Cloud is moving this direction.</strong> monday has the platform advantage to beat them — with AI agents that close the loop from detection to resolution.
+    <strong>Why monday wins:</strong> Every competitor stops at insight or requires a rip-and-replace. monday closes the loop from detection to resolution — on infrastructure customers already trust and pay for.
   </div>
 </div>
-<!-- SLIDE 5: WHY NOW -->
+
+<!-- ===== SLIDE 5: WHY NOW ===== -->
 <div class="slide" id="s5">
   <div class="eyebrow eyebrow-purple">Why Now</div>
   <h2>The window to own <span class="gradient">AI-native commerce ops</span> is open — right now.</h2>
   <div class="rule" style="background:linear-gradient(90deg,var(--purple),var(--blue));"></div>
   <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:20px;">
-    <div class="impact-item"><div class="impact-icon" style="background:rgba(155,109,255,.1);">🤖</div><div class="impact-text"><strong>AI agents are production-ready.</strong> monday AI Agents launched 2025. What required a full ML team in 2022 is now a 3-engineer agentic sprint.</div></div>
-    <div class="impact-item"><div class="impact-icon" style="background:rgba(0,133,255,.1);">🛒</div><div class="impact-text"><strong>Shopify ecosystem is at scale.</strong> 2M+ active merchants, $235B+ GMV annually. Mid-market brands (monday's ICP) are underserved by AI ops tooling.</div></div>
-    <div class="impact-item"><div class="impact-icon" style="background:rgba(0,200,117,.1);">🚀</div><div class="impact-text"><strong>monday's vertical expansion moment.</strong> Platform maturity + existing Shopify connector + AI Agents = uniquely positioned. Nobody else has all three.</div></div>
-    <div class="impact-item"><div class="impact-icon" style="background:rgba(246,43,84,.1);">⚔️</div><div class="impact-text"><strong>The category is being claimed now.</strong> Salesforce Commerce Cloud is expanding AI ops. Funded startups (Daydream, Alloy) are adding workflow layers. monday moves first or cedes the space.</div></div>
+    <div class="impact-item">
+      <div class="impact-icon" style="background:rgba(155,109,255,.1);">🤖</div>
+      <div class="impact-text"><strong>AI agents make this possible today.</strong> monday AI Agents are production-ready. What required a full ML team and 18-month build in 2022 is now a 1-quarter agentic sprint with 3 engineers.</div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-icon" style="background:rgba(0,133,255,.1);">🛒</div>
+      <div class="impact-text"><strong>Commerce data is finally addressable.</strong> Shopify, BigCommerce, WooCommerce all expose real-time APIs. The connective tissue exists. Mid-market brands are underserved by AI ops tooling — and they're already in monday.</div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-icon" style="background:rgba(0,200,117,.1);">🚀</div>
+      <div class="impact-text"><strong>monday's platform advantage is uniquely timed.</strong> Boards + Automations + AI Agents + vibe + existing commerce connector = unfair advantage nobody else has assembled. The window to use it is now.</div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-icon" style="background:rgba(246,43,84,.1);">⚔️</div>
+      <div class="impact-text"><strong>The category is being claimed.</strong> Salesforce is expanding AI ops (Agentforce for Commerce). Funded startups (Daydream, Alloy) are adding agentic workflow layers to eComm stacks. monday moves first or cedes the space.</div>
+    </div>
   </div>
   <div class="callout callout-purple" style="font-style:normal;">
-    <strong>This is not a feature request.</strong> It's a category bet — and the window to make it is now.
+    <strong>This is not a feature request.</strong> It's a category bet — and the window to make it is now, not in six months.
   </div>
 </div>
 
-<!-- SLIDE 6: THE PRODUCT — AGENTIC -->
+<!-- ===== SLIDE 6: THE PRODUCT ===== -->
 <div class="slide" id="s6">
   <div class="eyebrow eyebrow-green">The Product</div>
-  <h2>An AI agent that runs your<br/><span style="color:var(--green)">eCommerce operations 24/7</span></h2>
+  <h2>An AI agent that runs your<br/><span style="color:var(--green);">commerce operations 24/7</span></h2>
   <div class="rule" style="background:linear-gradient(90deg,var(--green),var(--blue));"></div>
   <div class="callout callout-green" style="font-style:normal;margin-bottom:16px;">
-    <strong>No dashboard to check. No alert to miss.</strong> The agent watches, detects, prioritizes, and acts — automatically.
+    <strong>No dashboard to check. No alert to miss.</strong> The agent watches, detects, prioritizes, and acts — automatically. Works with any commerce platform, starting with Shopify.
   </div>
   <div class="card" style="margin-bottom:14px;">
-    <div class="label" style="color:var(--blue);">How the agent works</div>
+    <div class="label" style="color:var(--blue);">The autonomous agent loop</div>
     <div class="agent-flow">
-      <div class="agent-step">🔌 Connect Shopify</div>
+      <div class="agent-step">🔌 Connect storefront</div>
       <div class="agent-arrow">→</div>
       <div class="agent-step">👁 Agent monitors 24/7</div>
       <div class="agent-arrow">→</div>
@@ -234,90 +285,182 @@ h2 { font-size: clamp(22px, 5.5vw, 40px); font-weight: 800; line-height: 1.15; l
       <div class="agent-step">✅ Tracks resolution</div>
     </div>
   </div>
-  <div class="card" style="border-color:rgba(246,43,84,.15);background:rgba(246,43,84,.03);margin-bottom:14px;">
-    <div class="label" style="color:var(--muted);">🚫 Out of scope (pilot)</div>
-    <div class="chips">
-      <span class="chip">Autonomous execution</span>
-      <span class="chip">Multi-channel integrations</span>
-      <span class="chip">Full eCommerce suite</span>
-      <span class="chip">Returns / reviews</span>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
+    <div class="card" style="border-color:rgba(0,200,117,.2);">
+      <div class="label" style="color:var(--green);">Pilot focus</div>
+      <div style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.7;">✅ Inventory risk detection<br/>✅ Revenue-at-risk scoring<br/>✅ Automatic owner assignment<br/>✅ Resolution tracking + SLA</div>
+    </div>
+    <div class="card" style="border-color:rgba(246,43,84,.15);">
+      <div class="label" style="color:var(--muted);">Out of scope (pilot)</div>
+      <div class="chips"><span class="chip">Autonomous execution</span><span class="chip">Multi-storefront</span><span class="chip">Full eComm suite</span><span class="chip">Returns / reviews</span></div>
     </div>
   </div>
   <div class="callout" style="font-style:normal;">
-    <strong>One bet.</strong> Win one expensive recurring problem before expanding. Prove the agent loop works before building the platform.
+    <strong>One bet.</strong> Win one expensive recurring problem before expanding. Shopify is the GTM vehicle for the pilot — the product is platform-agnostic by design.
   </div>
 </div>
 
-<!-- SLIDE 7: TECHNICAL APPROACH + ROADMAP -->
+<!-- ===== SLIDE 7: GTM PLAN ===== -->
 <div class="slide" id="s7">
-  <div class="eyebrow eyebrow-blue">How We Build It</div>
-  <h2>Built by agents.<br/><span class="gradient">Delivered by agents.</span></h2>
+  <div class="eyebrow eyebrow-blue">Go-To-Market</div>
+  <h2>We already have the customers.<br/><span class="gradient">We just need to activate them.</span></h2>
   <div class="rule" style="background:linear-gradient(90deg,var(--blue),var(--green));"></div>
-  <div class="card" style="margin-bottom:16px;">
-    <div class="label" style="color:var(--blue);">Architecture — 4 layers, all on monday's platform</div>
-    <div class="vs-item">🔐 <strong>Shopify OAuth App</strong> — built on monday's Apps Framework, webhooks for real-time inventory + order signals</div>
-    <div class="vs-item">⚙️ <strong>Data ingestion + normalization</strong> — unified SKU + ad spend pipeline into monday Boards</div>
-    <div class="vs-item">🤖 <strong>monday AI Agent</strong> — anomaly detection, revenue-at-risk scoring, ranked issue queue, action recommendations</div>
-    <div class="vs-item">🏗️ <strong>monday vibe surface</strong> — merchant-facing UI generated from prompt; boards + dashboards for ops visibility</div>
+  <div class="card" style="border-color:rgba(0,133,255,.25);background:rgba(0,133,255,.04);margin-bottom:14px;">
+    <div class="label" style="color:var(--blue);">Design partner ICP — already in monday today</div>
+    <div class="vs-item">🏪 <strong>Mid-market eCommerce brand</strong> — $5M–$50M GMV, 10–100 person ops team</div>
+    <div class="vs-item">📋 <strong>Already using monday as light ERP</strong> — boards for order management, inventory tracking, ops workflows</div>
+    <div class="vs-item">🛒 <strong>Running on Shopify</strong> (pilot) — willing to connect storefront + ad account for the pilot quarter</div>
+    <div class="vs-item">🤝 <strong>Willing to be hands-on</strong> — weekly feedback loop, share real data, committed design partner</div>
   </div>
-  <div class="label" style="color:var(--muted);">1-Quarter Roadmap — 1 PM + 3 Engineers (agent-assisted)</div>
-  <div class="phase-grid">
-    <div class="phase-card">
-      <div class="phase-title">Phase 1</div>
-      <div class="phase-weeks">Q1 Wk 1–3</div>
-      <div class="phase-items">Shopify OAuth app · Webhook setup · Data ingestion · Schema design</div>
+  <div class="card" style="margin-bottom:14px;">
+    <div class="label" style="color:var(--green);">Acquisition path — zero cold outreach</div>
+    <div class="vs-item">1️⃣ <strong>monday CS + Account team</strong> — query accounts with "eCommerce" or "inventory" board templates. Warm intro, no cold pitch.</div>
+    <div class="vs-item">2️⃣ <strong>monday App Marketplace</strong> — existing Shopify connector users who are already activated. Highest intent signal possible.</div>
+    <div class="vs-item">3️⃣ <strong>monday Community</strong> — eCommerce operators already vocal about needing better ops tooling.</div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px;">
+    <div class="card" style="text-align:center;">
+      <div style="font-size:28px;font-weight:900;color:var(--green);">3–5</div>
+      <div style="font-size:12px;color:var(--muted);">Design partners</div>
     </div>
-    <div class="phase-card">
-      <div class="phase-title">Phase 2</div>
-      <div class="phase-weeks">Q1 Wk 4–6</div>
-      <div class="phase-items">monday AI Agent · Risk scoring · Revenue-at-risk estimation · Alert logic</div>
+    <div class="card" style="text-align:center;">
+      <div style="font-size:28px;font-weight:900;color:var(--blue);">Week 1</div>
+      <div style="font-size:12px;color:var(--muted);">Outreach launch</div>
     </div>
-    <div class="phase-card">
-      <div class="phase-title">Phase 3</div>
-      <div class="phase-weeks">Q1 Wk 7–9</div>
-      <div class="phase-items">monday board surface · Owner assignment · Resolution tracking · monday vibe UI</div>
+    <div class="card" style="text-align:center;">
+      <div style="font-size:28px;font-weight:900;color:var(--purple);">Week 3</div>
+      <div style="font-size:12px;color:var(--muted);">First partner live</div>
     </div>
-    <div class="phase-card">
-      <div class="phase-title">Phase 4</div>
-      <div class="phase-weeks">Q1 Wk 10–13</div>
-      <div class="phase-items">Design partner pilot · Agent iteration · Success capture · Expansion readiness</div>
+  </div>
+  <div class="callout callout-green" style="font-style:normal;">
+    <strong>No new market entry required.</strong> Our design partners are already monday customers — we're activating existing value, not acquiring new logos.
+  </div>
+</div>
+
+<!-- ===== SLIDE 8: ROADMAP ===== -->
+<div class="slide" id="s8">
+  <div class="eyebrow eyebrow-blue">1-Quarter Roadmap</div>
+  <h2>1 PM + 3 Engineers.<br/><span class="gradient">Agent-assisted build.</span></h2>
+  <div class="rule" style="background:linear-gradient(90deg,var(--blue),var(--green));"></div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot" style="border-color:var(--blue);"></div>
+      <div class="tl-week">Weeks 1–3</div>
+      <div class="tl-title">Foundation</div>
+      <div class="tl-desc">Storefront OAuth app · Webhook ingestion · Data normalization pipeline · monday Board schema design</div>
+      <span class="tl-flag flag-blue">🏁 Milestone: Live data flowing into monday boards</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="border-color:var(--purple);"></div>
+      <div class="tl-week">Weeks 4–6</div>
+      <div class="tl-title">The Agent</div>
+      <div class="tl-desc">monday AI Agent core · Anomaly detection · Revenue-at-risk scoring · Ranked issue queue · Alert logic</div>
+      <span class="tl-flag flag-purple">🏁 Milestone: Agent detects first real stockout risk in partner account</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="border-color:var(--green);"></div>
+      <div class="tl-week">Weeks 7–9</div>
+      <div class="tl-title">Surface + UX</div>
+      <div class="tl-desc">monday vibe merchant UI · Owner assignment automation · Resolution tracking · SLA monitoring dashboard</div>
+      <span class="tl-flag flag-green">🏁 Milestone: First issue detected, assigned, and resolved end-to-end by agent</span>
+    </div>
+    <div class="tl-item" style="padding-bottom:0;">
+      <div class="tl-dot" style="border-color:var(--red);"></div>
+      <div class="tl-week">Weeks 10–13</div>
+      <div class="tl-title">Pilot + Proof</div>
+      <div class="tl-desc">All 3–5 partners live · Agent iteration based on real feedback · Success metrics captured · Expansion brief ready</div>
+      <span class="tl-flag flag-red">🏁 Milestone: Pilot read-out — data-backed go/no-go for full build</span>
     </div>
   </div>
 </div>
 
-<!-- SLIDE 8: THE ASK -->
-<div class="slide" id="s8">
-  <div class="eyebrow eyebrow-red">The Ask</div>
-  <div class="callout" style="font-style:normal;font-size:17px;border-left-width:5px;margin-bottom:20px;padding:18px 20px;">
-    <strong>✋ Approve monday eCommerce.</strong><br/>
-    <span style="font-size:14px;color:rgba(255,255,255,.7);">Approve 1 PM + 3 engineers for 1 quarter to build the first AI-agent-powered vertical on monday's platform — and prove monday can run operations, not just manage them.</span>
-  </div>
-  <div class="card" style="border-color:rgba(246,43,84,.25);background:rgba(246,43,84,.04);margin-bottom:14px;">
-    <div class="label" style="color:var(--red);">What we need</div>
-    <div class="success-item"><div class="success-badge">👥</div><div><strong>1 PM + 3 Engineers</strong> — dedicated for 1 quarter (agent-assisted build)</div></div>
-    <div class="success-item"><div class="success-badge">🤝</div><div><strong>3–5 Shopify mid-market design partners</strong> — outreach ready to launch on approval</div></div>
-    <div class="success-item"><div class="success-badge">📅</div><div><strong>Kickoff within 2 weeks</strong> of approval</div></div>
-    <div class="success-item"><div class="success-badge">✅</div><div><strong>Green light on Shopify integration scoping</strong> and design partner contracts</div></div>
-  </div>
-  <div class="card" style="border-color:rgba(155,109,255,.2);margin-bottom:14px;">
-    <div class="label" style="color:var(--purple);">Expansion path</div>
-    <div class="roadmap">
-      <div class="rm-step"><div class="rm-node now">Pilot → Inventory Risk Agent</div></div>
-      <div class="rm-step"><div class="rm-arrow" style="padding-left:6px;">↓</div></div>
-      <div class="rm-step"><div class="rm-node next">Conversion Drop Agent</div></div>
-      <div class="rm-step"><div class="rm-arrow" style="padding-left:6px;">↓</div></div>
-      <div class="rm-step"><div class="rm-node next">Campaign Ops Agent</div></div>
-      <div class="rm-step"><div class="rm-arrow" style="padding-left:6px;">↓</div></div>
-      <div class="rm-step"><div class="rm-node next" style="border-color:rgba(155,109,255,.3);color:var(--purple);">monday eCommerce Platform</div></div>
+<!-- ===== SLIDE 9: SUCCESS METRICS ===== -->
+<div class="slide" id="s9">
+  <div class="eyebrow eyebrow-green">Success Metrics</div>
+  <h2>Data is everything.<br/><span style="color:var(--green);">We measure it all.</span></h2>
+  <div class="rule" style="background:linear-gradient(90deg,var(--green),var(--blue));"></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px;">
+    <div class="metric-card">
+      <div class="metric-label">Time-to-Detection</div>
+      <div class="metric-value">&lt;15 min</div>
+      <div class="metric-desc">Agent detects inventory risk within 15 minutes of data signal</div>
+      <div class="metric-baseline">Baseline: 18–36 hrs manual discovery</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Owner Assignment Rate</div>
+      <div class="metric-value">90%+</div>
+      <div class="metric-desc">Issues get a named owner assigned within 1 hour of detection</div>
+      <div class="metric-baseline">Baseline: ~0% (no systematic process)</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Resolution Rate</div>
+      <div class="metric-value">70%+</div>
+      <div class="metric-desc">Issues closed within agreed SLA during pilot quarter</div>
+      <div class="metric-baseline">Baseline: unmeasured</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Revenue-at-Risk Surfaced</div>
+      <div class="metric-value">$ tracked</div>
+      <div class="metric-desc">Every alert tagged with estimated revenue impact — tracked in monday boards</div>
+      <div class="metric-baseline">Aggregate saved GMV across partners</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Weekly Active Partners</div>
+      <div class="metric-value">3 of 3+</div>
+      <div class="metric-desc">All pilot partners actively engaging with the agent by week 6</div>
+      <div class="metric-baseline">Proxy for product-market fit signal</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">Design Partner NPS</div>
+      <div class="metric-value">≥ 40</div>
+      <div class="metric-desc">NPS of ≥40 from design partners at end-of-quarter retro</div>
+      <div class="metric-baseline">Threshold for green-light to full build</div>
     </div>
   </div>
+  <div class="callout callout-green" style="font-style:normal;">
+    All metrics tracked in <strong>monday boards</strong> — visible to Liron and the team in real time throughout the pilot. No black box, no gut feel. Data decides.
+  </div>
+</div>
+
+<!-- ===== SLIDE 10: WHAT'S NEXT ===== -->
+<div class="slide" id="s10">
+  <div class="eyebrow eyebrow-red">What's Next</div>
+  <h2>One quarter.<br/><span class="gradient">One proof. Everything changes.</span></h2>
+  <div class="rule"></div>
+  <div class="card" style="border-color:rgba(246,43,84,.25);background:rgba(246,43,84,.04);margin-bottom:14px;">
+    <div class="label" style="color:var(--red);">What we need from you</div>
+    <div class="success-item"><div class="success-badge">👥</div><div><strong>1 PM + 3 Engineers</strong> dedicated for 1 quarter — agent-assisted build, not a traditional sprint</div></div>
+    <div class="success-item"><div class="success-badge">🤝</div><div><strong>Access to CS + Account team</strong> to identify and warm-intro 3–5 design partners from existing monday customers</div></div>
+    <div class="success-item"><div class="success-badge">📅</div><div><strong>Kickoff within 2 weeks</strong> of approval — design partner outreach starts day one</div></div>
+    <div class="success-item"><div class="success-badge">📊</div><div><strong>Shared monday workspace</strong> for pilot tracking — metrics visible to all stakeholders throughout</div></div>
+  </div>
+  <div class="card" style="border-color:rgba(0,200,117,.2);margin-bottom:14px;">
+    <div class="label" style="color:var(--green);">Where we'll be in 3 months</div>
+    <div class="vs-item">✅ 3–5 live design partners with the agent running in production</div>
+    <div class="vs-item">✅ Verified data: detection time, resolution rate, revenue-at-risk surfaced</div>
+    <div class="vs-item">✅ A working vertical product built on monday's own agent platform — proof it can be done</div>
+    <div class="vs-item">✅ A data-backed expansion brief: which agents to build next, what the full product looks like</div>
+  </div>
+  <div class="card" style="border-color:rgba(155,109,255,.2);">
+    <div class="label" style="color:var(--purple);">Expansion path (if pilot succeeds)</div>
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:13px;font-weight:600;">
+      <span style="color:var(--red);">🔴 Inventory Risk Agent</span>
+      <span style="color:var(--muted);">→</span>
+      <span style="color:var(--blue);">🔵 Conversion Drop Agent</span>
+      <span style="color:var(--muted);">→</span>
+      <span style="color:var(--purple);">🟣 Campaign Ops Agent</span>
+      <span style="color:var(--muted);">→</span>
+      <span style="color:var(--green);">🟢 monday eCommerce Platform</span>
+    </div>
+  </div>
+  <div class="gap-sm"></div>
   <p style="font-size:13px;color:var(--muted);font-style:italic;line-height:1.6;text-align:center;">"We're not building a dashboard. We're proving that AI agents can run an entire vertical — using monday's own platform to do it."</p>
 </div>
 
-<!-- NAV -->
+<!-- ===== NAV ===== -->
 <nav class="nav-bar">
   <button class="nav-btn" id="prevBtn" onclick="navigate(-1)" disabled>&#8249;</button>
-  <span class="nav-label" id="navLabel">1 / 8</span>
+  <span class="nav-label" id="navLabel">1 / 10</span>
   <button class="nav-btn" id="nextBtn" onclick="navigate(1)">&#8250;</button>
 </nav>
 
@@ -327,26 +470,23 @@ const total = slides.length;
 let cur = 0;
 function show(n) {
   slides[cur].classList.remove('active');
-  cur = Math.max(0, Math.min(total - 1, n));
+  cur = Math.max(0, Math.min(total-1, n));
   slides[cur].classList.add('active');
-  document.getElementById('ctr').textContent = (cur+1) + ' / ' + total;
-  document.getElementById('navLabel').textContent = (cur+1) + ' / ' + total;
-  document.getElementById('pbar').style.width = ((cur+1)/total*100) + '%';
-  document.getElementById('prevBtn').disabled = cur === 0;
-  document.getElementById('nextBtn').disabled = cur === total - 1;
-  window.scrollTo(0, 0);
+  document.getElementById('ctr').textContent = (cur+1)+' / '+total;
+  document.getElementById('navLabel').textContent = (cur+1)+' / '+total;
+  document.getElementById('pbar').style.width = ((cur+1)/total*100)+'%';
+  document.getElementById('prevBtn').disabled = cur===0;
+  document.getElementById('nextBtn').disabled = cur===total-1;
+  window.scrollTo(0,0);
 }
-function navigate(dir) { show(cur + dir); }
+function navigate(dir) { show(cur+dir); }
 document.addEventListener('keydown', e => {
-  if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') navigate(1);
-  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')  navigate(-1);
+  if (e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' ') navigate(1);
+  if (e.key==='ArrowLeft'||e.key==='ArrowUp') navigate(-1);
 });
-let tx = 0;
-document.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
-document.addEventListener('touchend', e => {
-  const dx = e.changedTouches[0].clientX - tx;
-  if (Math.abs(dx) > 50) navigate(dx < 0 ? 1 : -1);
-}, { passive: true });
+let tx=0;
+document.addEventListener('touchstart', e=>{tx=e.touches[0].clientX;},{passive:true});
+document.addEventListener('touchend', e=>{const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)navigate(dx<0?1:-1);},{passive:true});
 show(0);
 </script>
 </body>
