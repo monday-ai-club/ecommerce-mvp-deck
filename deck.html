@@ -105,49 +105,362 @@ h2 { font-size: clamp(22px,5.5vw,40px); font-weight: 800; line-height: 1.15; let
 <!-- ===== SLIDE 1: TITLE ===== -->
 <div class="slide active" id="s1">
   <div class="dot-bg"></div>
+  <div style="position:relative;max-width:720px;">
+    <div class="eyebrow eyebrow-red">monday eCommerce · Product Proposal</div>
+    <h1 class="gradient">monday<br/>eCommerce</h1>
+    <p class="subtitle">AI agents that run your eCommerce operations —<br/>built on monday, delivered by monday.</p>
+  </div>
+</div>
 
 <!-- ===== SLIDE 2: THE PROBLEM ===== -->
 <div class="slide" id="s2">
   <div class="eyebrow eyebrow-red">The Problem</div>
+  <h2>eCommerce teams lose revenue because critical issues are detected <em>too late</em></h2>
+  <div class="rule"></div>
+  <div style="background:linear-gradient(135deg,rgba(246,43,84,.09),rgba(0,133,255,.05));border:1px solid rgba(246,43,84,.2);border-radius:16px;padding:18px;margin-bottom:16px;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:8px;">Every week, somewhere</div>
+    <p style="font-size:15px;color:rgba(255,255,255,.85);line-height:1.6;">A hero SKU trends to stockout before a peak weekend. Campaigns keep driving traffic. The team notices <strong style="color:var(--red);">Saturday morning</strong>. Lost revenue. Wasted spend. Reactive scramble.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
+    <div class="impact-item">
+      <div class="impact-icon" style="background:rgba(246,43,84,.1);">📦</div>
+      <div class="impact-text">
+        <strong>$1.73T lost annually</strong> to inventory distortion (stockouts + overstocks) globally
+        <div class="source-link">Source: <a href="https://chainstoreage.com/ihl-group-inventory-issues-cause-17t-annual-losses" target="_blank">IHL Group, 2025</a></div>
+      </div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-icon" style="background:rgba(0,133,255,.1);">💸</div>
+      <div class="impact-text">
+        <strong>5–12% of retail media spend</strong> wasted on ads for out-of-stock products
+        <div class="source-link">Source: <a href="https://thedrum.com/news/2025/06/09/out-stock-out-pocket-retail-ads-have-efficiency-problem-what-s-the-fix" target="_blank">ShoppingIQ / The Drum, 2025</a></div>
+      </div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-icon" style="background:rgba(155,109,255,.1);">⏱</div>
+      <div class="impact-text">
+        <strong>51% of SKUs</strong> hit a stockout period at least once per year across major platforms
+        <div class="source-link">Source: <a href="https://www.opensend.com/post/inventory-stock-out-rate-statistics" target="_blank">Opensend, 2025</a></div>
+      </div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-icon" style="background:rgba(0,200,117,.1);">🔥</div>
+      <div class="impact-text">
+        <strong>4+ hrs per incident</strong> of manual cross-team triage - brands report ops, marketing, and logistics all scrambling reactively
+        <div class="source-link">Based on design partner conversations</div>
+      </div>
+    </div>
+  </div>
+  <div class="callout" style="font-style:normal;">
+    The data to prevent this already exists. It's sitting in Shopify, in ad platforms, in spreadsheets - <strong>unwatched and unconnected.</strong>
+  </div>
+</div>
 
 <!-- ===== SLIDE 3: MARKET OPPORTUNITY ===== -->
 <div class="slide" id="s3">
   <div class="eyebrow eyebrow-blue">Market Opportunity</div>
+  <h2>How big is this?<br/><span class="gradient">$10B+ and barely touched.</span></h2>
+  <div class="rule" style="background:linear-gradient(90deg,var(--blue),var(--purple));"></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px;">
+    <div class="card" style="border-color:rgba(0,133,255,.25);background:rgba(0,133,255,.04);text-align:center;padding:24px 16px;">
+      <div style="font-size:32px;font-weight:900;color:var(--blue);margin-bottom:8px;">$10B+</div>
+      <div style="font-size:13px;font-weight:700;margin-bottom:6px;">TAM</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.5;">Total eCommerce software market (2024), growing to $35B by 2032</div>
+    </div>
+    <div class="card" style="border-color:rgba(155,109,255,.25);background:rgba(155,109,255,.04);text-align:center;padding:24px 16px;">
+      <div style="font-size:32px;font-weight:900;color:var(--purple);margin-bottom:8px;">~$1.5B</div>
+      <div style="font-size:13px;font-weight:700;margin-bottom:6px;">SAM</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.5;">The ops intelligence layer — detecting risk, assigning owners, closing loops</div>
+    </div>
+    <div class="card" style="border-color:rgba(0,200,117,.25);background:rgba(0,200,117,.04);text-align:center;padding:24px 16px;">
+      <div style="font-size:32px;font-weight:900;color:var(--green);margin-bottom:8px;">monday</div>
+      <div style="font-size:13px;font-weight:700;margin-bottom:6px;">Beachhead</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.5;">monday's existing eCommerce customer base — already using boards for ops, no cold outreach required</div>
+    </div>
+  </div>
+  <div class="callout" style="font-style:normal;">
+    The fastest-growing and least-served segment of this market is the ops layer — detecting risk before it becomes damage. That's exactly what we're building.
+  </div>
+</div>
 
-<!-- ===== SLIDE 11: WHY NOW ===== -->
+<!-- ===== SLIDE 4: WHY NOW ===== -->
 <div class="slide" id="s8">
   <div class="eyebrow eyebrow-purple">Why Now</div>
+  <h2>The window to own <span class="gradient">AI-native commerce ops</span> is open - right now.</h2>
+  <div class="rule" style="background:linear-gradient(90deg,var(--purple),var(--blue));"></div>
+  <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:20px;">
+    <div class="impact-item">
+      <div class="impact-icon" style="background:rgba(155,109,255,.1);">🤖</div>
+      <div class="impact-text"><strong>monday AI Agents are ready to deploy.</strong> Autonomous agents that act inside the platform - not just surface insights. What required a full ML team in 2022 is now a 1-quarter agentic sprint with 3 engineers.</div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-icon" style="background:rgba(0,133,255,.1);">🛒</div>
+      <div class="impact-text"><strong>Commerce data is finally addressable.</strong> Shopify, BigCommerce, WooCommerce all expose real-time APIs. The connective tissue exists. Mid-market brands are underserved by AI ops tooling - and they're already in monday.</div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-icon" style="background:rgba(0,200,117,.1);">🚀</div>
+      <div class="impact-text"><strong>monday's platform advantage is uniquely timed.</strong> Boards + Automations + AI Agents + vibe + existing commerce connector = unfair advantage nobody else has assembled. The window to use it is now.</div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-icon" style="background:rgba(246,43,84,.1);">⚔️</div>
+      <div class="impact-text"><strong>The category is being claimed.</strong> Salesforce is expanding AI ops (Agentforce for Commerce). Funded startups (Daydream, Alloy) are adding agentic workflow layers to eComm stacks. monday moves first or cedes the space.</div>
+    </div>
+  </div>
+  <div class="callout callout-purple" style="font-style:normal;">
+    <strong>This is not a feature request.</strong> It's a category bet - and the window to make it is now, not in six months.
+  </div>
+</div>
 
-<!-- ===== SLIDE 7: COMPETITIVE ANALYSIS ===== -->
+<!-- ===== SLIDE 5: COMPETITIVE ANALYSIS ===== -->
 <div class="slide" id="s7">
   <div class="eyebrow eyebrow-red">Competitive Analysis</div>
+  <h2>Everyone stops at data.<br/><span class="gradient">We close the loop.</span></h2>
+  <div class="rule"></div>
+  <div class="comp-grid" style="margin-bottom:14px;">
+    <div class="comp-card">
+      <div class="comp-name">Triple Whale</div>
+      <div class="comp-tag">eComm analytics · funded $25M+</div>
+      <div class="comp-row">✅ Attribution, ROAS, LTV dashboards</div>
+      <div class="comp-row">✅ Shopify-native, strong DTC brand fit</div>
+      <div class="comp-row" style="color:var(--red);">❌ No risk detection or scoring</div>
+      <div class="comp-row" style="color:var(--red);">❌ No owner assignment or workflow</div>
+      <div class="comp-row" style="color:var(--red);">❌ Insight only - no action layer</div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-name">Northbeam / Gorgias</div>
+      <div class="comp-tag">Marketing analytics / Support</div>
+      <div class="comp-row">✅ Attribution modeling or support flows</div>
+      <div class="comp-row">✅ Strong DTC brand adoption</div>
+      <div class="comp-row" style="color:var(--red);">❌ No cross-signal intelligence</div>
+      <div class="comp-row" style="color:var(--red);">❌ No proactive ops layer</div>
+      <div class="comp-row" style="color:var(--red);">❌ No AI agent layer</div>
+    </div>
+    <div class="comp-card">
+      <div class="comp-name">Shopify Native Tools</div>
+      <div class="comp-tag">Built-in analytics + apps</div>
+      <div class="comp-row">✅ Basic inventory + sales analytics</div>
+      <div class="comp-row">✅ Zero integration friction</div>
+      <div class="comp-row" style="color:var(--red);">❌ No cross-signal intelligence</div>
+      <div class="comp-row" style="color:var(--red);">❌ No workflow or ownership layer</div>
+      <div class="comp-row" style="color:var(--red);">❌ Locked inside Shopify ecosystem</div>
+    </div>
+  </div>
+  <div class="comp-card monday" style="margin-bottom:12px;">
+    <div class="comp-name" style="color:var(--green);font-size:15px;margin-bottom:4px;">✅ monday eCommerce - the missing layer</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;font-size:13px;color:rgba(255,255,255,.8);">
+      <div>🤖 AI agents detect risk <em>before</em> it becomes damage</div>
+      <div>📋 Issues surface in monday boards with context + action</div>
+      <div>👤 Automatic owner assignment + resolution tracking</div>
+      <div>🔄 Closes the loop: detect → assign → resolve → measure</div>
+      <div>🏗️ Built on platform you already sell - no new tooling</div>
+      <div>🎯 Targets monday's existing customers - no cold outreach</div>
+    </div>
+  </div>
+</div>
 
-<!-- ===== SLIDE 2: FROM MANAGING WORK TO DOING IT ===== -->
-<div class="slide" id="s2_shift">
-  <div class="eyebrow eyebrow-purple">monday's Strategic Shift</div>
+<!-- ===== SLIDE 6: DOING THE WORK ===== -->
+<div class="slide" id="slide-doing-work">
+  <div class="eyebrow eyebrow-red">From Managing Work to Doing It</div>
+  <h2>monday has always organized work.<br/><span class="gradient">Now it can do the work.</span></h2>
+  <div class="rule" style="background:linear-gradient(90deg,var(--red),var(--blue));"></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;">
+    <div class="card" style="border-color:rgba(246,43,84,.2);background:rgba(246,43,84,.04);">
+      <div class="label" style="color:var(--muted);">Yesterday — Work Management</div>
+      <div style="font-size:14px;color:rgba(255,255,255,.7);line-height:1.7;margin-top:8px;">
+        📋 Boards track what happened<br/>
+        📊 Dashboards show what is happening<br/>
+        ⚡ Automations react to triggers<br/>
+        👤 Humans still connect the dots
+      </div>
+    </div>
+    <div class="card" style="border-color:rgba(0,200,117,.3);background:rgba(0,200,117,.04);">
+      <div class="label" style="color:var(--green);">Today — Agentic Platform</div>
+      <div style="font-size:14px;color:rgba(255,255,255,.85);line-height:1.7;margin-top:8px;">
+        🤖 Agents detect risk before it happens<br/>
+        🎯 Revenue impact scored automatically<br/>
+        👤 Right owner assigned instantly<br/>
+        ✅ Resolution tracked end-to-end
+      </div>
+    </div>
+  </div>
+  <div class="callout callout-green" style="font-style:normal;">
+    eCommerce is the first vertical to prove this shift. <strong>The same platform that managed the work will now do it.</strong>
+  </div>
+</div>
 
-<!-- ===== SLIDE 4: THE FOUNDATION ===== -->
+<!-- ===== SLIDE 7: THE FOUNDATION ===== -->
 <div class="slide" id="s4">
   <div class="eyebrow eyebrow-blue">monday Today - The Foundation</div>
+  <h2>The plumbing already exists.<br/><span class="gradient">The brain doesn't.</span></h2>
+  <div class="rule" style="background:linear-gradient(90deg,var(--blue),var(--purple));"></div>
+  <div class="card" style="margin-bottom:14px;">
+    <div class="label" style="color:var(--green);">✅ monday's existing platform - ready to build on</div>
+    <div class="vs-item">📋 <strong>monday Boards</strong> - structured data for orders, SKUs, inventory, issues, ownership</div>
+    <div class="vs-item">📊 <strong>monday Dashboards</strong> - real-time analytics layer, already used by ops teams</div>
+    <div class="vs-item">⚡ <strong>monday Automations</strong> - trigger-based workflows: inventory drop → board item + owner assignment</div>
+    <div class="vs-item">🏗️ <strong>monday vibe</strong> - AI no-code app builder: prompt → custom commerce UI, no engineers required</div>
+    <div class="vs-item">🤖 <strong>monday AI Agents</strong> - autonomous agents that act inside the platform: detect, prioritize, assign, follow up</div>
+    <div class="vs-item">🔌 <strong>Commerce data connectors</strong> - Shopify is first. Framework supports any storefront (WooCommerce, BigCommerce, custom). Platform-agnostic by design.</div>
+  </div>
+  <div class="callout" style="font-style:normal;border-left-color:var(--red);background:rgba(246,43,84,.05);">
+    <strong>What's missing:</strong> nothing watches this data proactively. The brain isn't there yet.
+  </div>
+</div>
 
-<!-- ===== SLIDE 5: THE PRODUCT ===== -->
+<!-- ===== SLIDE 8: THE PRODUCT ===== -->
 <div class="slide" id="s5">
   <div class="eyebrow eyebrow-green">The Product</div>
+  <h2>An AI agent that runs your<br/><span style="color:var(--green);">commerce operations 24/7</span></h2>
+  <div class="rule" style="background:linear-gradient(90deg,var(--green),var(--blue));"></div>
+  <div class="callout callout-green" style="font-style:normal;margin-bottom:16px;">
+    <strong>No dashboard to check. No alert to miss.</strong> The agent watches, detects, prioritizes, and acts - automatically. Works with any commerce platform, starting with Shopify.
+  </div>
+  <div class="card" style="margin-bottom:14px;">
+    <div class="label" style="color:var(--blue);">The autonomous agent loop</div>
+    <div class="agent-flow">
+      <div class="agent-step">🔌 Connect storefront</div>
+      <div class="agent-arrow">→</div>
+      <div class="agent-step">👁 Agent monitors 24/7</div>
+      <div class="agent-arrow">→</div>
+      <div class="agent-step">🚨 Detects risk</div>
+      <div class="agent-arrow">→</div>
+      <div class="agent-step">💰 Scores revenue impact</div>
+      <div class="agent-arrow">→</div>
+      <div class="agent-step">📋 Creates board item</div>
+      <div class="agent-arrow">→</div>
+      <div class="agent-step">👤 Assigns owner</div>
+      <div class="agent-arrow">→</div>
+      <div class="agent-step">✅ Tracks resolution</div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
+    <div class="card" style="border-color:rgba(0,200,117,.2);">
+      <div class="label" style="color:var(--green);">Pilot focus</div>
+      <div style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.7;">✅ Inventory risk detection<br/>✅ Revenue-at-risk scoring<br/>✅ Automatic owner assignment<br/>✅ Resolution tracking + SLA</div>
+    </div>
+    <div class="card" style="border-color:rgba(246,43,84,.15);">
+      <div class="label" style="color:var(--muted);">Out of scope (pilot)</div>
+      <div class="chips"><span class="chip">Autonomous execution</span><span class="chip">Multi-storefront</span><span class="chip">Full eComm suite</span><span class="chip">Returns / reviews</span></div>
+    </div>
+  </div>
+  <div class="callout" style="font-style:normal;">
+    <strong>One bet.</strong> Win one expensive recurring problem before expanding. Shopify is the GTM vehicle for the pilot - the product is platform-agnostic by design.
+  </div>
+</div>
 
-<!-- ===== SLIDE 6: THE UNFAIR ADVANTAGE ===== -->
+<!-- ===== SLIDE 9: UNFAIR ADVANTAGE ===== -->
 <div class="slide" id="s6">
   <div class="eyebrow eyebrow-green">The Unfair Advantage</div>
+  <h2>The platform is already built.<br/><span class="gradient">We just need to ship.</span></h2>
+  <div class="rule" style="background:linear-gradient(90deg,var(--green),var(--blue));"></div>
+  <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:20px;">
+    <div class="card" style="padding:20px;">
+      <p style="font-size:16px;color:rgba(255,255,255,.85);line-height:1.7;">Every competitor faces the same choice: <strong>build a new product from zero</strong>, or <strong>retool an existing analytics tool to be agentic</strong>. Either path takes 18+ months.</p>
+    </div>
+    <div class="card" style="padding:20px;border-color:rgba(0,200,117,.2);">
+      <p style="font-size:16px;color:rgba(255,255,255,.85);line-height:1.7;">We already have every piece. We're not assembling a platform - we're <strong>connecting what exists</strong> and pointing it at a specific, expensive problem.</p>
+    </div>
+    <div class="card" style="padding:20px;border-color:rgba(246,43,84,.2);background:rgba(246,43,84,.04);">
+      <p style="font-size:16px;font-weight:700;color:#fff;line-height:1.7;">No one else can say that. That's the bet.</p>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;">
+    <div class="card" style="text-align:center;padding:18px 12px;border-color:rgba(0,133,255,.2);">
+      <div style="font-size:26px;margin-bottom:8px;">⚡</div>
+      <div style="font-size:13px;font-weight:700;margin-bottom:6px;color:var(--blue);">1-quarter delivery</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.5;">Because the backbone is already there</div>
+    </div>
+    <div class="card" style="text-align:center;padding:18px 12px;border-color:rgba(0,200,117,.2);">
+      <div style="font-size:26px;margin-bottom:8px;">🏗️</div>
+      <div style="font-size:13px;font-weight:700;margin-bottom:6px;color:var(--green);">Net-new, agentic from day one</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.5;">Not a migration, not a pivot</div>
+    </div>
+    <div class="card" style="text-align:center;padding:18px 12px;border-color:rgba(155,109,255,.2);">
+      <div style="font-size:26px;margin-bottom:8px;">🔒</div>
+      <div style="font-size:13px;font-weight:700;margin-bottom:6px;color:var(--purple);">Platform moat</div>
+      <div style="font-size:12px;color:var(--muted);line-height:1.5;">monday owns the work layer. No analytics tool does.</div>
+    </div>
+  </div>
+  <div class="callout" style="font-style:normal;font-size:15px;font-weight:600;text-align:center;border-left:none;background:rgba(246,43,84,.07);border-radius:12px;border:1px solid rgba(246,43,84,.2);padding:16px;">
+    This isn't a feature. It's a platform bet. And we're the only ones who can make it.
+  </div>
+</div>
 
-<!-- ===== SLIDE 10: RISKS & THREATS ===== -->
-<div class="slide" id="s10_risks">
-  <div class="eyebrow eyebrow-red">Risks &amp; Threats</div>
+<!-- ===== SLIDE 10: RISKS ===== -->
+<div class="slide" id="slide-risks">
+  <div class="eyebrow eyebrow-red">Risks and Mitigations</div>
+  <h2>We see the risks.<br/><span class="gradient">Here is how we manage them.</span></h2>
+  <div class="rule"></div>
+  <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
+    <div class="card" style="border-color:rgba(246,43,84,.2);">
+      <div style="display:flex;gap:12px;align-items:flex-start;">
+        <div style="font-size:20px;flex-shrink:0;">⚠️</div>
+        <div><div style="font-size:14px;font-weight:700;margin-bottom:4px;">Design partners do not show up</div><div style="font-size:13px;color:var(--muted);line-height:1.5;"><strong>Mitigation:</strong> CS team identifies and warms leads before kickoff. Commitment confirmed before engineering starts. No partners — no pilot.</div></div>
+      </div>
+    </div>
+    <div class="card" style="border-color:rgba(246,43,84,.2);">
+      <div style="display:flex;gap:12px;align-items:flex-start;">
+        <div style="font-size:20px;flex-shrink:0;">⚠️</div>
+        <div><div style="font-size:14px;font-weight:700;margin-bottom:4px;">Agent accuracy is too low to trust</div><div style="font-size:13px;color:var(--muted);line-height:1.5;"><strong>Mitigation:</strong> Human-in-the-loop for all actions in pilot phase. Agent suggests, human approves. Trust is built incrementally.</div></div>
+      </div>
+    </div>
+    <div class="card" style="border-color:rgba(246,43,84,.2);">
+      <div style="display:flex;gap:12px;align-items:flex-start;">
+        <div style="font-size:20px;flex-shrink:0;">⚠️</div>
+        <div><div style="font-size:14px;font-weight:700;margin-bottom:4px;">Shopify API limits block real-time monitoring</div><div style="font-size:13px;color:var(--muted);line-height:1.5;"><strong>Mitigation:</strong> Polling + webhook hybrid. Already validated in current connector. Known constraint, engineered around.</div></div>
+      </div>
+    </div>
+    <div class="card" style="border-color:rgba(246,43,84,.2);">
+      <div style="display:flex;gap:12px;align-items:flex-start;">
+        <div style="font-size:20px;flex-shrink:0;">⚠️</div>
+        <div><div style="font-size:14px;font-weight:700;margin-bottom:4px;">Internal bandwidth gets pulled to monday core</div><div style="font-size:13px;color:var(--muted);line-height:1.5;"><strong>Mitigation:</strong> Dedicated team, ring-fenced. Leadership commitment to protect the pilot from roadmap churn.</div></div>
+      </div>
+    </div>
+    <div class="card" style="border-color:rgba(246,43,84,.2);">
+      <div style="display:flex;gap:12px;align-items:flex-start;">
+        <div style="font-size:20px;flex-shrink:0;">⚠️</div>
+        <div><div style="font-size:14px;font-weight:700;margin-bottom:4px;">monday brand does not resonate in eCommerce</div><div style="font-size:13px;color:var(--muted);line-height:1.5;"><strong>Mitigation:</strong> We start with customers who already use monday — brand trust is pre-established. GTM is expansion, not conquest.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<!-- ===== SLIDE 9: BUSINESS CASE ===== -->
-<div class="slide" id="s9_biz">
+<!-- ===== SLIDE 11: BUSINESS CASE ===== -->
+<div class="slide" id="slide-biz-case">
   <div class="eyebrow eyebrow-green">Business Case</div>
+  <h2>$100M ARR in 3 years.<br/><span class="gradient">Here is the math.</span></h2>
+  <div class="rule" style="background:linear-gradient(90deg,var(--green),var(--blue));"></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px;">
+    <div class="card" style="border-color:rgba(0,200,117,.25);background:rgba(0,200,117,.04);text-align:center;padding:20px 12px;">
+      <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Year 1</div>
+      <div style="font-size:26px;font-weight:900;color:var(--green);">$5M</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px;">50 accounts x $8.3K/mo avg</div>
+    </div>
+    <div class="card" style="border-color:rgba(0,133,255,.25);background:rgba(0,133,255,.04);text-align:center;padding:20px 12px;">
+      <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Year 2</div>
+      <div style="font-size:26px;font-weight:900;color:var(--blue);">$30M</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px;">250 accounts + expansion</div>
+    </div>
+    <div class="card" style="border-color:rgba(155,109,255,.25);background:rgba(155,109,255,.04);text-align:center;padding:20px 12px;">
+      <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Year 3</div>
+      <div style="font-size:26px;font-weight:900;color:var(--purple);">$100M</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px;">800 accounts + full suite</div>
+    </div>
+  </div>
+  <div class="card" style="margin-bottom:14px;">
+    <div class="label" style="color:var(--blue);">Pricing model — credits, not seats</div>
+    <div class="vs-item">💳 <strong>Flat base fee</strong> — board access, dashboards, standard automations</div>
+    <div class="vs-item">⚡ <strong>AI operations credits</strong> — pay per agent action: detection run, risk score, owner assignment, follow-up</div>
+    <div class="vs-item">📈 <strong>Usage expands with ops volume</strong> — high-GMV brands run more operations, pay more. Natural land-and-expand.</div>
+    <div class="vs-item">🎯 <strong>Benchmark:</strong> Triple Whale charges $1,100/mo for analytics-only. We close the loop — ARPU headroom is significant.</div>
+  </div>
+  <div class="callout callout-green" style="font-style:normal;">
+    Same benchmark monday CRM hit. Smaller addressable market, but higher ARPU, tighter ICP, and we start from an existing customer base — <strong>not cold.</strong>
+  </div>
+</div>
 
 <!-- ===== SLIDE 12: GO-TO-MARKET ===== -->
-<div class="slide" id="s9">
+<div class="slide" id="slide-gtm">
   <div class="eyebrow eyebrow-blue">Go-To-Market</div>
   <h2>Start with customers who already<br/><span class="gradient">live in monday.</span></h2>
   <div class="rule" style="background:linear-gradient(90deg,var(--blue),var(--green));"></div>
@@ -179,25 +492,137 @@ h2 { font-size: clamp(22px,5.5vw,40px); font-weight: 800; line-height: 1.15; let
     </div>
   </div>
   <div class="callout callout-green" style="font-style:normal;">
-    We don't need to find new customers for the pilot. <strong>They're already in monday.</strong> This is how the $100M ARR path starts — from the base we already have.
+    We do not need to find new customers for the pilot. <strong>They are already in monday.</strong> This is how the $100M ARR path starts — from the base we already have.
   </div>
 </div>
 
 <!-- ===== SLIDE 13: ROADMAP ===== -->
 <div class="slide" id="s10">
   <div class="eyebrow eyebrow-blue">1-Quarter Roadmap</div>
+  <h2>One quarter, four milestones,<br/><span class="gradient">one working vertical.</span></h2>
+  <div class="rule" style="background:linear-gradient(90deg,var(--blue),var(--green));"></div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot" style="border-color:var(--blue);"></div>
+      <div class="tl-week">Weeks 1–3</div>
+      <div class="tl-title">Foundation</div>
+      <span class="tl-flag flag-blue">🏁 Live data flowing into monday boards</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="border-color:var(--purple);"></div>
+      <div class="tl-week">Weeks 4–6</div>
+      <div class="tl-title">The Agent</div>
+      <span class="tl-flag flag-purple">🏁 Agent detects first real stockout risk</span>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="border-color:var(--green);"></div>
+      <div class="tl-week">Weeks 7–9</div>
+      <div class="tl-title">Surface + UX</div>
+      <span class="tl-flag flag-green">🏁 First issue detected, assigned, and resolved end-to-end</span>
+    </div>
+    <div class="tl-item" style="padding-bottom:0;">
+      <div class="tl-dot" style="border-color:var(--red);"></div>
+      <div class="tl-week">Weeks 10–13</div>
+      <div class="tl-title">Pilot + Proof</div>
+      <span class="tl-flag flag-red">🏁 Data-backed go/no-go for full build</span>
+    </div>
+  </div>
+</div>
 
-<!-- ===== SLIDE 11: SUCCESS METRICS ===== -->
+<!-- ===== SLIDE 14: SUCCESS METRICS ===== -->
 <div class="slide" id="s11">
   <div class="eyebrow eyebrow-green">How We Measure Success</div>
+  <h2>Three metrics that matter.<br/><span style="color:var(--green);">Everything else is noise.</span></h2>
+  <div class="rule" style="background:linear-gradient(90deg,var(--green),var(--blue));"></div>
+  <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:20px;">
+    <div class="card" style="border-color:rgba(0,133,255,.2);padding:20px;">
+      <div style="display:flex;align-items:center;gap:16px;">
+        <div style="font-size:32px;font-weight:900;color:var(--blue);flex-shrink:0;">⚡</div>
+        <div><div style="font-size:17px;font-weight:700;margin-bottom:4px;">Time-to-detection &lt;30 min</div><div style="font-size:13px;color:var(--muted);">vs. 18–36 hr manual baseline. This is the core proof that the agent works.</div></div>
+      </div>
+    </div>
+    <div class="card" style="border-color:rgba(0,200,117,.2);padding:20px;">
+      <div style="display:flex;align-items:center;gap:16px;">
+        <div style="font-size:32px;font-weight:900;color:var(--green);flex-shrink:0;">👤</div>
+        <div><div style="font-size:17px;font-weight:700;margin-bottom:4px;">Owner assigned within 1hr &gt;90%</div><div style="font-size:13px;color:var(--muted);">Baseline today: ~0%. This proves the workflow layer is working, not just detection.</div></div>
+      </div>
+    </div>
+    <div class="card" style="border-color:rgba(155,109,255,.2);padding:20px;">
+      <div style="display:flex;align-items:center;gap:16px;">
+        <div style="font-size:32px;font-weight:900;color:var(--purple);flex-shrink:0;">⭐</div>
+        <div><div style="font-size:17px;font-weight:700;margin-bottom:4px;">Design partner NPS ≥ 40</div><div style="font-size:13px;color:var(--muted);">Green-light threshold for full build. If partners wouldn't miss this — we don't scale.</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="callout callout-green" style="font-style:normal;">
+    If we can't move all three — we don't expand. <strong>Data decides.</strong>
+  </div>
+</div>
 
 <!-- ===== SLIDE 15: THE ASK ===== -->
 <div class="slide" id="s12">
-  <div class="eyebrow eyebrow-red">The Ask</div>
+  <div class="eyebrow eyebrow-red">What's Next</div>
+  <h2>One quarter.<br/><span class="gradient">One proof. Then we scale.</span></h2>
+  <div class="rule"></div>
+  <div style="background:linear-gradient(135deg,rgba(246,43,84,.09),rgba(0,133,255,.05));border:1px solid rgba(246,43,84,.3);border-radius:16px;padding:24px;margin-bottom:20px;text-align:center;">
+    <div style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:12px;">The Ask</div>
+    <div style="font-size:36px;font-weight:900;color:#fff;margin-bottom:8px;">1 PM + 3 Engineers</div>
+    <div style="font-size:15px;color:rgba(255,255,255,.65);">Dedicated for 1 quarter &mdash; agent-assisted build, not a traditional sprint</div>
+  </div>
+  <div class="card" style="border-color:rgba(246,43,84,.15);background:rgba(246,43,84,.03);margin-bottom:14px;">
+    <div class="label" style="color:var(--red);">Also needed</div>
+    <div class="success-item"><div class="success-badge">🤝</div><div><strong>Access to CS + Account team</strong> to identify and warm-intro 3 strategic design partners from existing monday customers</div></div>
+    <div class="success-item" style="border:none;"><div class="success-badge">📅</div><div><strong>Kickoff within 2 weeks</strong> of approval - design partner outreach starts day one</div></div>
+  </div>
+  <div class="card" style="border-color:rgba(0,200,117,.2);margin-bottom:14px;">
+    <div class="label" style="color:var(--green);">Where we'll be in 3 months</div>
+    <div class="vs-item">✅ 3 strategic design partners with the agent running in production</div>
+    <div class="vs-item">✅ Verified data: detection time, resolution rate, revenue-at-risk surfaced - tracked live in a shared monday workspace</div>
+    <div class="vs-item">✅ A working vertical product built on monday's own agent platform - proof it can be done</div>
+    <div class="vs-item">✅ A data-backed expansion brief: which agents to build next, what the full product looks like</div>
+    <div class="vs-item">🔀 <strong>Decision point:</strong> scale or pivot - with real data, not assumptions</div>
+  </div>
+  <div class="card" style="margin-bottom:14px;">
+    <div class="label" style="color:var(--muted);">Next steps</div>
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;font-weight:500;color:rgba(255,255,255,.8);">
+      <span>Design partner outreach</span><span style="color:var(--muted);">→</span>
+      <span>Kickoff</span><span style="color:var(--muted);">→</span>
+      <span>Q1 build</span><span style="color:var(--muted);">→</span>
+      <span>Pilot results</span><span style="color:var(--muted);">→</span>
+      <span style="color:var(--green);font-weight:700;">Q2 expansion proposal</span>
+    </div>
+  </div>
+  <div class="gap-sm"></div>
+  <p style="font-size:13px;color:var(--muted);font-style:italic;line-height:1.6;text-align:center;">"We're not building a dashboard. We're proving that AI agents can run an entire vertical - using monday's own platform to do it."</p>
+</div>
 
-<!-- ===== SLIDE: THE VISION — WHERE THIS GOES ===== -->
-<div class="slide" id="s_vision">
-  <div class="eyebrow eyebrow-purple">The Vision</div>
+<!-- ===== SLIDE 16: VISION ===== -->
+<div class="slide" id="slide-vision">
+  <div style="position:relative;max-width:720px;margin:auto;padding-top:40px;">
+    <div class="eyebrow eyebrow-purple">The Vision</div>
+    <h1 style="font-size:clamp(28px,7vw,58px);font-weight:900;line-height:1.08;letter-spacing:-.03em;margin-bottom:18px;">
+      The <span class="gradient">Agentic Commerce OS</span><br/>for every brand that sells online.
+    </h1>
+    <div class="rule" style="background:linear-gradient(90deg,var(--purple),var(--blue),var(--green));width:80px;"></div>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-top:20px;margin-bottom:24px;">
+      <div class="card" style="border-color:rgba(0,133,255,.2);">
+        <div style="font-size:12px;color:var(--blue);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Year 1</div>
+        <div style="font-size:15px;color:rgba(255,255,255,.85);">Prove the agent on inventory risk. One vertical, three design partners, real data.</div>
+      </div>
+      <div class="card" style="border-color:rgba(0,200,117,.2);">
+        <div style="font-size:12px;color:var(--green);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Year 2</div>
+        <div style="font-size:15px;color:rgba(255,255,255,.85);">Expand to demand forecasting, supplier coordination, returns intelligence. The full ops loop.</div>
+      </div>
+      <div class="card" style="border-color:rgba(155,109,255,.2);">
+        <div style="font-size:12px;color:var(--purple);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Year 3</div>
+        <div style="font-size:15px;color:rgba(255,255,255,.85);">monday becomes the operating system for eCommerce brands. Not just where the work lives — where it gets done.</div>
+      </div>
+    </div>
+    <div style="font-size:18px;font-weight:700;color:rgba(255,255,255,.9);font-style:italic;line-height:1.6;border-left:3px solid var(--purple);padding-left:16px;">
+      Every brand that sells online will need an agent layer. We are building it on the platform that already runs their operations.
+    </div>
+  </div>
+</div>
 
 <!-- ===== NAV ===== -->
 <nav class="nav-bar">
