@@ -6,6 +6,8 @@ A product proposal for monday eCommerce: AI agents that run eCommerce operations
 
 👉 **[View the deck](https://monday-ai-club.github.io/ecommerce-mvp-deck/deck.html)**
 
+<!-- Last updated by Elitech Bot ✅ -->
+
 ## About
 
 This deck covers:
