@@ -1,36 +1,20 @@
-# monday eCommerce MVP - AI-First Revenue Protection
+# monday eCommerce — MVP Pitch Deck
 
-A focused MVP to validate real customer value before broader expansion.
+A product proposal for monday eCommerce: AI agents that run eCommerce operations, built on monday's platform.
 
-## The Problem
+## Live Deck
 
-eCommerce teams lose revenue because critical issues are detected **too late**. Inventory, ads, and storefront performance live in silos. Teams manually connect the dots under time pressure - and pay for it every week.
+👉 **[View the deck](https://monday-ai-club.github.io/ecommerce-mvp-deck/deck.html)**
 
-## The Bet
+## About
 
-One hero workflow: **Inventory-Driven Revenue Risk** for Shopify brands.
+This deck covers:
+- The problem: eCommerce teams lose revenue because critical issues are detected too late
+- Market opportunity: $10B+ eCommerce software market
+- The foundation: monday's existing platform as the build substrate
+- The product: an AI agent that detects risk, assigns owners, and tracks resolution 24/7
+- Competitive landscape, unfair advantage, GTM strategy, roadmap, and success metrics
 
-- Detect high-value SKUs at stockout risk
-- Estimate revenue at risk
-- Recommend next action
-- Assign owner + track resolution in monday
+## Stack
 
-## Why monday
-
-monday already owns the work layer. We are adding the intelligence layer. Analytics tools stop at alerts - monday closes the loop through ownership, collaboration, and execution tracking.
-
-## Success Metrics (90-Day Pilot)
-
-- Issues surfaced early enough to matter
-- Operators act on them weekly
-- Time to ownership measurably improves
-- At least one prevented revenue-loss event captured
-
-## View the Deck
-
-Open deck.html in your browser or visit the GitHub Pages link.
-
----
-
-*Built by the monday AI Club - Written by AI*
-*README last updated by Katara*
+Single-file HTML presentation with keyboard/swipe navigation. No build step required.
