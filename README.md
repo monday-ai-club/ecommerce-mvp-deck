@@ -1,12 +1,20 @@
 # monday eCommerce — MVP Pitch Deck
 
-A product proposal for monday eCommerce: AI agents that run eCommerce operations, built on monday's platform.
+## 🎯 Hook
+
+> **"We have the opportunity to unlock a new $10B+ vertical and expand monday's ARR — by shipping an AI-native ERP that turns monday into the operating brain of every eCommerce business."**
+
+## 🧭 Mission Statement
+
+monday eCommerce is a **System of Agency** — it doesn't just track what happened, it decides what should happen next and does it.
+
+We are opening eCommerce as a net-new industry vertical for monday: an AI-native operations layer that detects risk, assigns ownership, and resolves issues autonomously — built entirely on monday's existing platform.
+
+---
 
 ## Live Deck
 
 👉 **[View the deck](https://monday-ai-club.github.io/ecommerce-mvp-deck/deck.html)**
-
-<!-- Last updated by Elitech Bot ✅ -->
 
 ## About
 
