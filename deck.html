@@ -286,9 +286,9 @@ h2 { font-size: clamp(22px,5.5vw,40px); font-weight: 800; line-height: 1.15; let
     <!-- Salesforce Agentforce: right ~72% x, 52% y -->
     <div style="position:absolute;left:72%;top:52%;width:12px;height:12px;border-radius:50%;background:rgba(0,133,255,.5);border:2px solid rgba(0,133,255,.6);transform:translate(-50%,-50%);"></div>
     <div style="position:absolute;left:calc(72% + 10px);top:48%;font-size:11px;font-weight:700;color:rgba(255,255,255,.7);white-space:nowrap;">Salesforce Agentforce</div>
-    <!-- monday eCommerce: top-right ~80% x, 12% y — dot and label kept separate -->
-    <div style="position:absolute;left:80%;top:12%;width:16px;height:16px;border-radius:50%;background:var(--green);box-shadow:0 0 14px rgba(0,200,117,.7);border:2px solid #fff;transform:translate(-50%,-50%);"></div>
-    <div style="position:absolute;left:66%;top:5%;font-size:12px;font-weight:800;color:var(--green);white-space:nowrap;">monday eCommerce ✦</div>
+    <!-- monday eCommerce: top-right ~88% x, 10% y -->
+    <div style="position:absolute;left:88%;top:10%;width:16px;height:16px;border-radius:50%;background:var(--green);box-shadow:0 0 14px rgba(0,200,117,.7);border:2px solid #fff;transform:translate(-50%,-50%);"></div>
+    <div style="position:absolute;right:2%;top:4%;font-size:12px;font-weight:800;color:var(--green);white-space:nowrap;">monday eCommerce ✦</div>
   </div>
   <div class="comp-card monday">
     <div class="comp-name" style="color:var(--green);font-size:15px;margin-bottom:4px;">✅ monday eCommerce — the missing layer</div>
@@ -360,26 +360,12 @@ h2 { font-size: clamp(22px,5.5vw,40px); font-weight: 800; line-height: 1.15; let
       <div class="impact-text"><strong>Existing customer base</strong> — zero CAC for pilot accounts. We start warm, not cold.</div>
     </div>
     <div class="impact-item">
-      <div class="impact-icon" style="background:rgba(246,43,84,.1);">⚡</div>
-      <div class="impact-text"><strong>1-quarter build vs 18+ months</strong> for any competitor starting from scratch</div>
+      <div class="impact-icon" style="background:rgba(246,43,84,.1);">🏷️</div>
+      <div class="impact-text"><strong>No current monday competitor focuses on eCommerce</strong> — Asana, ClickUp, Notion are generic work tools. The eCommerce ops layer is unclaimed territory.</div>
     </div>
   </div>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;">
-    <div class="card" style="text-align:center;padding:18px 12px;border-color:rgba(0,133,255,.2);">
-      <div style="font-size:26px;margin-bottom:8px;">⚡</div>
-      <div style="font-size:13px;font-weight:700;margin-bottom:6px;color:var(--blue);">1-quarter delivery</div>
-      <div style="font-size:12px;color:var(--muted);line-height:1.5;">Because the backbone is already there</div>
-    </div>
-    <div class="card" style="text-align:center;padding:18px 12px;border-color:rgba(0,200,117,.2);">
-      <div style="font-size:26px;margin-bottom:8px;">🏗️</div>
-      <div style="font-size:13px;font-weight:700;margin-bottom:6px;color:var(--green);">Net-new, agentic from day one</div>
-      <div style="font-size:12px;color:var(--muted);line-height:1.5;">Not a migration, not a pivot</div>
-    </div>
-    <div class="card" style="text-align:center;padding:18px 12px;border-color:rgba(155,109,255,.2);">
-      <div style="font-size:26px;margin-bottom:8px;">🔒</div>
-      <div style="font-size:13px;font-weight:700;margin-bottom:6px;color:var(--purple);">Platform moat</div>
-      <div style="font-size:12px;color:var(--muted);line-height:1.5;">monday owns the work layer. No analytics tool does.</div>
-    </div>
+  <div class="callout" style="font-style:normal;border-left-color:var(--green);background:rgba(0,200,117,.05);">
+    monday uses the platform to provide net-new value — not migrate existing users, not rebuild from scratch. <strong>That is the moat.</strong>
   </div>
 </div>
 
@@ -561,7 +547,7 @@ h2 { font-size: clamp(22px,5.5vw,40px); font-weight: 800; line-height: 1.15; let
     <div class="card" style="border-color:rgba(0,200,117,.2);padding:20px;">
       <div style="display:flex;align-items:center;gap:16px;">
         <div style="font-size:32px;font-weight:900;color:var(--green);flex-shrink:0;">👤</div>
-        <div><div style="font-size:17px;font-weight:700;margin-bottom:4px;">Owner assigned within 1hr &gt;90%</div><div style="font-size:13px;color:var(--muted);">Baseline today: ~0%. This proves the workflow layer is working, not just detection.</div></div>
+        <div><div style="font-size:17px;font-weight:700;margin-bottom:4px;">Human in the loop within 1hr &gt;90%</div><div style="font-size:13px;color:var(--muted);">Baseline today: ~0%. This proves the workflow layer is working, not just detection.</div></div>
       </div>
     </div>
     <div class="card" style="border-color:rgba(155,109,255,.2);padding:20px;">
@@ -583,36 +569,48 @@ h2 { font-size: clamp(22px,5.5vw,40px); font-weight: 800; line-height: 1.15; let
   <div class="rule"></div>
   <div style="background:linear-gradient(135deg,rgba(246,43,84,.09),rgba(0,133,255,.05));border:1px solid rgba(246,43,84,.3);border-radius:16px;padding:24px;margin-bottom:20px;text-align:center;">
     <div style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:12px;">The Ask</div>
-    <div style="font-size:32px;font-weight:900;color:#fff;margin-bottom:8px;">1 PM + 3 Engineers + Designer</div>
-    <div style="font-size:15px;color:rgba(255,255,255,.65);">Dedicated for 1 quarter — Designer joins from discovery phase &mdash; agent-assisted build, not a traditional sprint</div>
+    <div style="font-size:32px;font-weight:900;color:#fff;margin-bottom:8px;">3 Engineers · 1 PM · 1 Designer · 1 Analyst</div>
+    <div style="font-size:15px;color:rgba(255,255,255,.65);">Dedicated for 1 quarter — agent-assisted build, not a traditional sprint</div>
   </div>
-  <div class="card" style="border-color:rgba(246,43,84,.15);background:rgba(246,43,84,.03);margin-bottom:14px;">
-    <div class="label" style="color:var(--red);">Also needed</div>
-    <div class="success-item"><div class="success-badge">🤝</div><div><strong>Access to CS + Account team</strong> to identify and warm-intro 6 strategic design partners from existing monday customers</div></div>
-    <div class="success-item" style="border:none;"><div class="success-badge">📅</div><div><strong>Kickoff within 2 weeks</strong> of approval — design partner outreach starts day one</div></div>
+  <div class="callout callout-green" style="font-style:normal;margin-bottom:14px;">
+    In 3 months, agents will be actively operating real eCommerce businesses for our design partners — not a prototype, not a demo.
   </div>
-  <div class="card" style="border-color:rgba(0,200,117,.2);margin-bottom:14px;">
-    <div class="label" style="color:var(--green);">Where we'll be in 3 months</div>
-    <div class="vs-item">✅ 6 strategic design partners with the agent running in production</div>
-    <div class="vs-item">✅ Verified data: detection time, resolution rate, revenue-at-risk surfaced — tracked live in a shared monday workspace</div>
-    <div class="vs-item">✅ A working vertical product built on monday's own agent platform — proof it can be done</div>
-    <div class="vs-item">✅ A data-backed expansion brief: which agents to build next, what the full product looks like</div>
-    <div class="vs-item">🔀 <strong>Decision point:</strong> scale or pivot — with real data, not assumptions</div>
-  </div>
-  <div class="card" style="margin-bottom:14px;">
-    <div class="label" style="color:var(--muted);">Next steps</div>
-    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;font-weight:500;color:rgba(255,255,255,.8);">
-      <span>Design partner outreach</span><span style="color:var(--muted);">→</span>
-      <span>Kickoff</span><span style="color:var(--muted);">→</span>
-      <span>Q1 build</span><span style="color:var(--muted);">→</span>
-      <span>Pilot results</span><span style="color:var(--muted);">→</span>
-      <span style="color:var(--green);font-weight:700;">Q2 expansion proposal</span>
+</div>
+
+<!-- ===== SLIDE 15: VISION ===== -->
+<div class="slide" id="slide-vision">
+  <div style="position:relative;max-width:720px;margin:auto;padding-top:40px;">
+    <div class="eyebrow eyebrow-purple">The Vision</div>
+    <h2 style="font-size:clamp(22px,5.5vw,40px);font-weight:800;line-height:1.15;letter-spacing:-.025em;margin-bottom:18px;">
+      The <span class="gradient">Agentic Commerce OS</span><br/>for every brand that sells online.
+    </h2>
+    <div class="rule" style="background:linear-gradient(90deg,var(--purple),var(--blue),var(--green));width:80px;"></div>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-top:20px;margin-bottom:24px;">
+      <div class="card" style="border-color:rgba(0,133,255,.2);">
+        <div style="font-size:12px;color:var(--blue);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Phase 1</div>
+        <div style="font-size:15px;color:rgba(255,255,255,.85);">Prove the agent on inventory risk. One vertical, six design partners, real data.</div>
+      </div>
+      <div class="card" style="border-color:rgba(0,200,117,.2);">
+        <div style="font-size:12px;color:var(--green);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Phase 2</div>
+        <div style="font-size:15px;color:rgba(255,255,255,.85);">Expand to demand forecasting, supplier coordination, returns intelligence. The full ops loop.</div>
+      </div>
+      <div class="card" style="border-color:rgba(155,109,255,.2);">
+        <div style="font-size:12px;color:var(--purple);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Phase 3</div>
+        <div style="font-size:15px;color:rgba(255,255,255,.85);">monday becomes the operating system for eCommerce brands. Not just where the work lives — where it gets done.</div>
+      </div>
+    </div>
+    <div style="font-size:18px;font-weight:700;color:rgba(255,255,255,.9);font-style:italic;line-height:1.6;border-left:3px solid var(--purple);padding-left:16px;">
+      Every brand that sells online will need an agent layer. We are building it on the platform that already runs their operations.
+    </div>
+    <div style="margin-top:20px;padding:14px 18px;background:rgba(155,109,255,.07);border:1px solid rgba(155,109,255,.25);border-radius:12px;font-size:13px;color:rgba(255,255,255,.75);line-height:1.6;">
+      <span style="font-weight:700;color:var(--purple);">monday AI Work Platform · March 2026</span><br/>
+      eCommerce is the first vertical execution of monday's AI Work Platform vision — <em>"people and agents execute, manage, and operate as one team to drive business results."</em> One platform. Every department. eCommerce is the beachhead proof.
     </div>
   </div>
 </div>
 
-<!-- ===== SLIDE 15: HOW WE BUILT THIS DECK (NEW) ===== -->
-<div class="slide" id="slide-how-built">
+<!-- ===== SLIDE 16: HOW WE BUILT THIS DECK ===== -->
+<div class="slide" id="slide-how-built" >
   <div class="eyebrow eyebrow-purple">Agentic Development</div>
   <h2>Agents did the research.<br/><span class="gradient">Humans made the calls.</span></h2>
   <div class="rule" style="background:linear-gradient(90deg,var(--purple),var(--blue));"></div>
@@ -654,38 +652,6 @@ h2 { font-size: clamp(22px,5.5vw,40px); font-weight: 800; line-height: 1.15; let
   </div>
   <div class="callout callout-purple" style="font-style:normal;">
     Every number in this deck was validated or flagged for validation. Every strategic decision was made by a human. <strong>This is what human-in-the-loop actually looks like.</strong>
-  </div>
-</div>
-
-<!-- ===== SLIDE 16: VISION ===== -->
-<div class="slide" id="slide-vision">
-  <div style="position:relative;max-width:720px;margin:auto;padding-top:40px;">
-    <div class="eyebrow eyebrow-purple">The Vision</div>
-    <h1 style="font-size:clamp(28px,7vw,58px);font-weight:900;line-height:1.08;letter-spacing:-.03em;margin-bottom:18px;">
-      The <span class="gradient">Agentic Commerce OS</span><br/>for every brand that sells online.
-    </h1>
-    <div class="rule" style="background:linear-gradient(90deg,var(--purple),var(--blue),var(--green));width:80px;"></div>
-    <div style="display:flex;flex-direction:column;gap:12px;margin-top:20px;margin-bottom:24px;">
-      <div class="card" style="border-color:rgba(0,133,255,.2);">
-        <div style="font-size:12px;color:var(--blue);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Year 1</div>
-        <div style="font-size:15px;color:rgba(255,255,255,.85);">Prove the agent on inventory risk. One vertical, six design partners, real data.</div>
-      </div>
-      <div class="card" style="border-color:rgba(0,200,117,.2);">
-        <div style="font-size:12px;color:var(--green);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Year 2</div>
-        <div style="font-size:15px;color:rgba(255,255,255,.85);">Expand to demand forecasting, supplier coordination, returns intelligence. The full ops loop.</div>
-      </div>
-      <div class="card" style="border-color:rgba(155,109,255,.2);">
-        <div style="font-size:12px;color:var(--purple);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Year 3</div>
-        <div style="font-size:15px;color:rgba(255,255,255,.85);">monday becomes the operating system for eCommerce brands. Not just where the work lives — where it gets done.</div>
-      </div>
-    </div>
-    <div style="font-size:18px;font-weight:700;color:rgba(255,255,255,.9);font-style:italic;line-height:1.6;border-left:3px solid var(--purple);padding-left:16px;">
-      Every brand that sells online will need an agent layer. We are building it on the platform that already runs their operations.
-    </div>
-    <div style="margin-top:20px;padding:14px 18px;background:rgba(155,109,255,.07);border:1px solid rgba(155,109,255,.25);border-radius:12px;font-size:13px;color:rgba(255,255,255,.75);line-height:1.6;">
-      <span style="font-weight:700;color:var(--purple);">monday AI Work Platform · March 2026</span><br/>
-      eCommerce is the first vertical execution of monday's AI Work Platform vision — <em>"people and agents execute, manage, and operate as one team to drive business results."</em> One platform. Every department. eCommerce is the beachhead proof.
-    </div>
   </div>
 </div>
 
