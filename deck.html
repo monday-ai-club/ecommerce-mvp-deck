@@ -699,7 +699,7 @@ h2 { font-size: clamp(22px,5.5vw,40px); font-weight: 800; line-height: 1.15; let
 const slides = Array.from(document.querySelectorAll('.slide'));
 const total = slides.length;
 let cur = 0;
-function show(n) {
+function show(n, pushState) {
   slides[cur].classList.remove('active');
   cur = Math.max(0, Math.min(total-1, n));
   slides[cur].classList.add('active');
@@ -709,8 +709,15 @@ function show(n) {
   document.getElementById('prevBtn').disabled = cur===0;
   document.getElementById('nextBtn').disabled = cur===total-1;
   window.scrollTo(0,0);
+  var url = new URL(window.location);
+  url.searchParams.set('slide', cur+1);
+  if (pushState !== false) { history.pushState({slide: cur}, '', url); }
+  else { history.replaceState({slide: cur}, '', url); }
 }
-function navigate(dir) { show(cur+dir); }
+function navigate(dir) { show(cur+dir, true); }
+window.addEventListener('popstate', function(e) {
+  if (e.state && typeof e.state.slide === 'number') show(e.state.slide, false);
+});
 document.addEventListener('keydown', e => {
   if (e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' ') navigate(1);
   if (e.key==='ArrowLeft'||e.key==='ArrowUp') navigate(-1);
@@ -718,7 +725,8 @@ document.addEventListener('keydown', e => {
 let tx=0;
 document.addEventListener('touchstart', e=>{tx=e.touches[0].clientX;},{passive:true});
 document.addEventListener('touchend', e=>{const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)navigate(dx<0?1:-1);},{passive:true});
-show(0);
+var _init = parseInt(new URL(window.location).searchParams.get('slide') || '1', 10);
+show(Math.max(0, _init-1), false);
 </script>
 </body>
 </html>
